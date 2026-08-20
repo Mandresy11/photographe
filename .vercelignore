@@ -1,0 +1,9 @@
+# Original high-resolution photographs and design references.
+# Production uses the derived files in public/web.
+public/images
+
+node_modules
+.next
+.git
+.vercel
+*.tsbuildinfo

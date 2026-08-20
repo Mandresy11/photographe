@@ -1,0 +1,122 @@
+import Image from "next/image";
+import Link from "next/link";
+
+function CompassBurst() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 34 34"
+      fill="none"
+      className="size-7 shrink-0 text-[#d8ad55]"
+    >
+      <circle cx="17" cy="17" r="4" stroke="currentColor" />
+      <path
+        d="m17 2 2.8 9.2L27.6 6.4l-4.8 7.8L32 17l-9.2 2.8 4.8 7.8-7.8-4.8L17 32l-2.8-9.2-7.8 4.8 4.8-7.8L2 17l9.2-2.8-4.8-7.8 7.8 4.8L17 2Z"
+        stroke="currentColor"
+        strokeWidth="0.9"
+      />
+    </svg>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section
+      id="accueil"
+      aria-labelledby="hero-title"
+      className="relative isolate flex min-h-[max(42rem,100svh)] overflow-hidden bg-[#050807] text-white lg:h-svh lg:min-h-[42rem]"
+    >
+      <Image
+        src="/web/photoo/Mariage%20Christophe%20%26%20Sandra/31122013-DSC_6500.jpg"
+        alt="Christophe et Sandra face à l’océan le jour de leur mariage"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[62%_center] sm:object-[60%_center] lg:object-[56%_35%]"
+        style={{
+          filter:
+            "brightness(.57) saturate(.72) contrast(1.18) sepia(.14) hue-rotate(-7deg)",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-[#07100f]/20" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_42%,rgba(197,119,62,0.26)_0%,rgba(95,53,30,0.1)_24%,transparent_48%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(5,23,34,0.32)_0%,rgba(4,12,16,0.06)_50%,rgba(138,67,25,0.3)_100%)] mix-blend-color" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,6,0.72)_0%,rgba(2,6,6,0.08)_29%,rgba(2,6,6,0.04)_55%,rgba(2,6,6,0.88)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_32%,rgba(0,0,0,0.44)_100%)]" />
+
+      <div className="relative z-10 mx-auto flex min-h-full w-full min-w-0 max-w-[1920px] flex-1 flex-col px-5 pt-28 pb-6 sm:px-10 sm:pt-32 sm:pb-8 lg:px-[4.5rem] lg:pt-32 lg:pb-8 xl:px-[5.5rem]">
+        <div className="flex flex-1 flex-col items-center justify-center pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-40 lg:pb-4">
+          <h1
+            id="hero-title"
+            className="w-full min-w-0 text-center uppercase text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.38)]"
+          >
+            <span className="mb-2 block text-[8px] leading-5 font-extrabold tracking-[0.42em] sm:mb-4 sm:text-[11px] sm:tracking-[0.64em] lg:text-xs">
+              Des instants qui durent
+            </span>
+            <span className="block text-[12vw] leading-[0.84] font-black tracking-[-0.075em] sm:text-[11.7vw] lg:text-[clamp(7.5rem,11.5vw,13.25rem)]">
+              Toujours<span className="text-[#d8ad55]">.</span>
+            </span>
+          </h1>
+
+          <Link
+            href="/galerie"
+            className="group relative mt-8 inline-flex min-h-14 min-w-[15.5rem] items-center justify-center overflow-hidden rounded-full border border-white/45 bg-black/20 px-8 text-[8px] font-extrabold tracking-[0.24em] text-white uppercase shadow-[0_12px_40px_rgba(0,0,0,0.26)] backdrop-blur-[3px] transition-[color,border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#d8ad55]/80 hover:text-[#ffe2aa] hover:shadow-[0_14px_44px_rgba(216,173,85,0.16)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8ad55] sm:mt-10 sm:min-w-[17.5rem] sm:min-h-16 sm:text-[9px]"
+          >
+            <span className="absolute inset-y-0 right-0 w-24 bg-[radial-gradient(circle_at_right,rgba(216,173,85,0.36),transparent_68%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+            <span className="relative">Voir la galerie</span>
+            <span
+              aria-hidden="true"
+              className="relative ml-6 text-[16px] transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </div>
+
+        <div className="grid w-full min-w-0 grid-cols-2 items-end gap-x-5 gap-y-6 sm:gap-x-8 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-7">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+            <CompassBurst />
+            <div className="shrink-0 text-[7px] leading-[1.8] font-medium tracking-[0.14em] text-white/75 uppercase sm:text-[9px]">
+              <p>Photographe de mariage</p>
+              <p>Guadeloupe · Caraïbes · Monde</p>
+            </div>
+            <span className="ml-5 hidden h-px min-w-10 flex-1 bg-white/22 xl:block" />
+          </div>
+
+          <p
+            className="hidden whitespace-nowrap text-center text-lg italic tracking-[0.02em] text-[#d8ad55]/85 lg:block xl:text-xl"
+            style={{
+              fontFamily: '"Segoe Script", "Brush Script MT", cursive',
+            }}
+          >
+            L’élégance est une promesse tenue.
+          </p>
+
+          <div className="flex min-w-0 items-center justify-end gap-5">
+            <span className="hidden h-px min-w-10 flex-1 bg-white/22 xl:block" />
+            <div className="shrink-0 text-right text-[7px] font-extrabold tracking-[0.18em] uppercase sm:text-[9px]">
+              <div className="mb-3 flex items-center justify-end gap-6 text-white/55">
+                <span>01</span>
+                <span>08</span>
+              </div>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 text-white transition-colors hover:text-[#e5bd6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8ad55]"
+              >
+                <span className="sm:hidden">Réserver</span>
+                <span className="hidden sm:inline">Réserver ma date</span>
+                <span
+                  aria-hidden="true"
+                  className="text-[#d8ad55] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  ↗
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
