@@ -9,6 +9,7 @@ import messageIcon from "@iconify-icons/solar/chat-round-dots-linear";
 import questionIcon from "@iconify-icons/solar/question-circle-linear";
 import routingIcon from "@iconify-icons/solar/routing-linear";
 import starIcon from "@iconify-icons/solar/star-linear";
+import apertureIcon from "@iconify-icons/solar/camera-linear";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -26,23 +27,13 @@ const navItems = [
 
 function ApertureMark({ expanded = false }: { expanded?: boolean }) {
   return (
-    <svg
+    <Icon
+      icon={apertureIcon}
       aria-hidden="true"
-      viewBox="0 0 36 36"
-      fill="none"
       className={`size-8 shrink-0 text-[#d8b884] sm:size-11 ${
         expanded ? "2xl:size-14 2xl:translate-y-1" : ""
       }`}
-    >
-      <circle cx="18" cy="18" r="16.25" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="18" cy="18" r="4.25" stroke="currentColor" strokeWidth="1.25" />
-      <path
-        d="M18 2l6.15 10.65M34 18H21.7M18 34l6.15-10.65M2 18h12.3M18 2l-6.15 10.65M18 34l-6.15-10.65"
-        stroke="currentColor"
-        strokeWidth="1.15"
-      />
-      <path d="M18 0v4M18 32v4M0 18h4M32 18h4" stroke="currentColor" />
-    </svg>
+    />
   );
 }
 

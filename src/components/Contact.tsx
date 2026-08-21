@@ -1,5 +1,10 @@
 import Image from "next/image";
 import { Bodoni_Moda } from "next/font/google";
+import { Icon } from "@iconify/react";
+import letterIcon from "@iconify-icons/solar/letter-linear";
+import whatsappIcon from "@iconify-icons/simple-icons/whatsapp";
+import mapPointIcon from "@iconify-icons/solar/map-point-linear";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -80,55 +85,14 @@ function ContactIcon({
   type: "email" | "whatsapp" | "location";
 }) {
   if (type === "email") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" className="size-6">
-        <rect
-          x="3"
-          y="5"
-          width="18"
-          height="14"
-          rx="1"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
-        <path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="1.6" />
-      </svg>
-    );
+    return <Icon icon={letterIcon} className="size-6" />;
   }
 
   if (type === "whatsapp") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" className="size-6">
-        <path
-          d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M9 8.2c.4 2.8 2 4.5 4.8 5.2l1.2-1.1 1.7.8c-.2 1.4-1 2.1-2.3 2.1-3.7 0-7-3.4-7-7.1 0-1.1.7-2 2-2.2l.8 1.7L9 8.2Z"
-          fill="currentColor"
-        />
-      </svg>
-    );
+    return <Icon icon={whatsappIcon} className="size-6" />;
   }
 
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-6">
-      <path
-        d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <circle
-        cx="12"
-        cy="10"
-        r="2.3"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-    </svg>
-  );
+  return <Icon icon={mapPointIcon} className="size-6" />;
 }
 
 function BrandSeal() {

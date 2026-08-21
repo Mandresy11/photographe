@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -176,11 +178,7 @@ export default function InvisiblePageView() {
                 aria-hidden="true"
                 className="hidden size-12 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/72 text-[#d8b884] xl:flex"
               >
-                <svg viewBox="0 0 48 48" fill="none" className="size-9">
-                  <circle cx="24" cy="24" r="17" stroke="currentColor" />
-                  <circle cx="24" cy="24" r="5" stroke="currentColor" />
-                  <path d="M24 7v12M24 29v12M7 24h12M29 24h12" stroke="currentColor" />
-                </svg>
+                <Icon icon={compassIcon} className="size-9" />
               </span>
               <p className="min-w-0 flex-1 text-xs leading-5 text-white/52">
                 L’invisible relie chaque détail pour raconter votre histoire

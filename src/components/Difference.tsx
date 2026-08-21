@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const principles = [
   {
@@ -145,19 +147,7 @@ export default function Difference() {
               votre histoire.
             </p>
             <div className="mt-5 flex items-center gap-3 text-[8px] font-bold tracking-[0.18em] text-[#14201e]/45 uppercase lg:mt-4">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 32 32"
-                className="size-6 text-[#b68e54]"
-                fill="none"
-              >
-                <circle cx="16" cy="16" r="11" stroke="currentColor" />
-                <path
-                  d="M16 5l4.3 7.4M27 16h-8.5M16 27l4.3-7.4M5 16h8.5M16 5l-4.3 7.4M16 27l-4.3-7.4"
-                  stroke="currentColor"
-                />
-                <circle cx="16" cy="16" r="3" stroke="currentColor" />
-              </svg>
+              <Icon icon={compassIcon} aria-hidden="true" className="size-6 text-[#b68e54]" />
               <span>Reportage · RAW · Lumière naturelle</span>
             </div>
             <Link

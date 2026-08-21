@@ -4,6 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
+import flowerIcon from "@iconify-icons/solar/leaf-linear";
+import bouquetIcon from "@iconify-icons/solar/leaf-linear";
+import champagneIcon from "@iconify-icons/solar/wineglass-linear";
+import ringIcon from "@iconify-icons/solar/heart-linear";
+import sparklesIcon from "@iconify-icons/solar/stars-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -15,7 +22,7 @@ const offerings = [
     number: "01",
     title: "Mariage",
     detail: "De vos préparatifs à la dernière danse, je raconte votre histoire avec élégance et discrétion.",
-    emoji: "💐",
+    emoji: bouquetIcon,
     image:
       "/web/photoo/Mariage%20Christophe%20%26%20Sandra/07052022-DSC_6464.jpg",
     alt: "Christophe et Sandra réunis face à l’océan",
@@ -25,7 +32,7 @@ const offerings = [
     number: "02",
     title: "Autres célébrations",
     detail: "Fiançailles, anniversaires et instants de famille, sur demande.",
-    emoji: "🥂",
+    emoji: champagneIcon,
     image:
       "/web/photoo/Mariage%20Mr%20%26%20Mme%20Nilor/06082022-DSC_8567.jpg",
     alt: "Portrait d’un couple lors d’une célébration en Guadeloupe",
@@ -35,7 +42,7 @@ const offerings = [
     number: "03",
     title: "Séance engagement",
     detail: "Une séance pleine de complicité pour célébrer votre amour.",
-    emoji: "💍",
+    emoji: ringIcon,
     image:
       "/web/photoo/PHOTOSHOOT%20BOOK%20RONALD%20CHERY/prise%20de%20vue%20sans%20titre-5949%20INSTA%20CHERY_RONALD.jpg",
     alt: "Portrait éditorial de Ronald Chery",
@@ -45,51 +52,13 @@ const offerings = [
     number: "04",
     title: "Mode & événement",
     detail: "Défilés, lancements et images de marque au regard éditorial.",
-    emoji: "✨",
+    emoji: sparklesIcon,
     image:
       "/web/photoo/DEFILE%20GUERLAIN%202020%20PFW/22012020-DEFILE%20PARIS%20FASHION%20WEEK%20GUERLAIN%202021%20108.jpg",
     alt: "Robe présentée lors d’un défilé parisien",
     position: "center 32%",
   },
 ];
-
-function TravelMark() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 32 32"
-      fill="none"
-      className="size-5"
-    >
-      <circle cx="16" cy="16" r="14" stroke="currentColor" />
-      <path
-        d="M9 21.5 21.5 9m-8.7 1.4 8.8-1.5-1.5 8.8M9.3 15.8l3.6 1.1 1.1 3.6m2.2-7.6-2.8-2.8M19 19l2.8 2.8"
-        stroke="currentColor"
-        strokeWidth="1.1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function FlowerMark() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 80 56"
-      fill="none"
-      className="h-10 w-16 text-[#d8b884]/70"
-    >
-      <path
-        d="M4 50c10-2 16-10 18-20M28 52c4-10 4-20 0-30M50 52c-2-10-6-19-14-26M4 50c14-10 22-24 24-42"
-        stroke="currentColor"
-        strokeWidth="0.9"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export default function Prestations() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -151,7 +120,7 @@ export default function Prestations() {
               présence et vos besoins.
             </p>
 
-            <FlowerMark />
+            <Icon icon={flowerIcon} className="mt-4 h-10 w-16 text-[#d8b884]/70" />
           </header>
 
           <div className="min-w-0">
@@ -269,9 +238,11 @@ export default function Prestations() {
                         <p className="mt-4 max-w-[12rem] text-xs leading-6 text-[#14201e]/60">
                           {offering.detail}
                         </p>
-                        <span aria-hidden="true" className="mt-auto text-2xl">
-                          {offering.emoji}
-                        </span>
+                        <Icon
+                          icon={offering.emoji}
+                          aria-hidden="true"
+                          className="mt-auto size-7 text-[#b68e54]"
+                        />
                       </div>
                     </div>
                   </article>
@@ -335,7 +306,7 @@ export default function Prestations() {
       <div className="relative mx-5 mt-12 flex shrink-0 flex-col gap-7 border-t border-[#14201e]/18 pt-7 pb-10 sm:mx-8 sm:flex-row sm:items-center sm:justify-between lg:mx-[7.5vw] lg:mt-7 lg:pb-[5.25rem]">
         <p className="flex items-center gap-4 text-xs text-[#14201e]/58 sm:text-sm">
           <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 text-[#b68e54]">
-            <TravelMark />
+            <Icon icon={compassIcon} className="size-5" />
           </span>
           Déplacement en Guadeloupe inclus — au-delà, sur devis.
         </p>

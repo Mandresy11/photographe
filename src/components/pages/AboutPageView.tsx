@@ -1,5 +1,9 @@
 import Image from "next/image";
 import { Bodoni_Moda } from "next/font/google";
+import { Icon } from "@iconify/react";
+import cityIcon from "@iconify-icons/solar/city-linear";
+import windIcon from "@iconify-icons/solar/wind-linear";
+import sunIcon from "@iconify-icons/solar/sun-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -44,27 +48,14 @@ const milestones = [
 
 function JourneyIcon({ kind }: { kind: (typeof milestones)[number]["icon"] }) {
   if (kind === "city") {
-    return (
-      <svg viewBox="0 0 40 40" className="size-8" fill="none" aria-hidden="true">
-        <path d="M7 33h26M10 30V17h20v13M14 17V9h12v8M12 13h16M16 23h2m4 0h2m-8 5h2m4 0h2" stroke="currentColor" strokeWidth="1.4" />
-      </svg>
-    );
+    return <Icon icon={cityIcon} className="size-8" aria-hidden="true" />;
   }
 
   if (kind === "movement") {
-    return (
-      <svg viewBox="0 0 40 40" className="size-8" fill="none" aria-hidden="true">
-        <path d="M5 13c5.3-5.3 10.7-5.3 16 0s10.7 5.3 16 0M5 20c5.3-5.3 10.7-5.3 16 0s10.7 5.3 16 0M5 27c5.3-5.3 10.7-5.3 16 0s10.7 5.3 16 0" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    );
+    return <Icon icon={windIcon} className="size-8" aria-hidden="true" />;
   }
 
-  return (
-    <svg viewBox="0 0 40 40" className="size-8" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="6.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M20 4v6m0 20v6M4 20h6m20 0h6M8.7 8.7l4.2 4.2m14.2 14.2 4.2 4.2m0-22.6-4.2 4.2M12.9 27.1l-4.2 4.2" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
+  return <Icon icon={sunIcon} className="size-8" aria-hidden="true" />;
 }
 
 export default function AboutPageView() {

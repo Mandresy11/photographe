@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const journey = [
   {
@@ -141,20 +143,7 @@ export default function About() {
                 Un parcours · Un regard
               </p>
               <div className="flex items-center gap-2 text-[7px] font-bold tracking-[0.14em] text-[#14201e]/40 uppercase">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 32 32"
-                  className="size-5 text-[#b68e54]"
-                  fill="none"
-                >
-                  <circle cx="16" cy="16" r="11" stroke="currentColor" />
-                  <path
-                    d="M16 5l4.3 7.4M27 16h-8.5M16 27l4.3-7.4M5 16h8.5M16 5l-4.3 7.4M16 27l-4.3-7.4"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                  />
-                  <circle cx="16" cy="16" r="3" stroke="currentColor" />
-                </svg>
+                <Icon icon={compassIcon} aria-hidden="true" className="size-5 text-[#b68e54]" />
                 <span className="hidden sm:inline">RAW · f/2.8 · 1/250</span>
                 <span className="sm:hidden">RAW</span>
               </div>

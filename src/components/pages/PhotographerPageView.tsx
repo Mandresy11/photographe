@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
+import { Icon } from "@iconify/react";
+import waterdropIcon from "@iconify-icons/solar/waterdrop-linear";
+import targetIcon from "@iconify-icons/solar/target-linear";
+import usersGroupIcon from "@iconify-icons/solar/users-group-rounded-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -11,56 +15,17 @@ const values = [
   {
     title: "Calme",
     text: "Pour voir ce que l’agitation cache.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M12 21c-4.5 0-7-2.7-7-6.2C5 11 8 8 12 4c4 4 7 7 7 10.8 0 3.5-2.5 6.2-7 6.2Z"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinejoin="round"
-        />
-        <path d="M12 21v-9" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: waterdropIcon,
   },
   {
     title: "Précision",
     text: "Pour que la technique ne se remarque jamais.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.3" />
-        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.3" />
-        <circle cx="12" cy="12" r="0.9" fill="currentColor" />
-        <path
-          d="M12 2v3M12 19v3M2 12h3M19 12h3"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: targetIcon,
   },
   {
     title: "Présence",
     text: "Pour être là sans prendre la place.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="9" cy="8.3" r="3" stroke="currentColor" strokeWidth="1.3" />
-        <path
-          d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-        />
-        <circle cx="16.8" cy="8.8" r="2.3" stroke="currentColor" strokeWidth="1.2" />
-        <path
-          d="M15.2 19c.2-2.3 1.9-4.1 4.1-4.4"
-          stroke="currentColor"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: usersGroupIcon,
   },
 ];
 
@@ -173,9 +138,7 @@ export default function PhotographerPageView() {
                   key={value.title}
                   className="flex min-w-0 flex-col items-center px-2 py-1 sm:px-5"
                 >
-                  <div className="size-8 text-[#d3ad68] sm:size-10">
-                    {value.icon}
-                  </div>
+                  <Icon icon={value.icon} className="size-8 text-[#d3ad68] sm:size-10" />
                   <h3 className="mt-4 text-[10px] font-bold tracking-[0.18em] text-white uppercase sm:text-xs">
                     {value.title}
                   </h3>

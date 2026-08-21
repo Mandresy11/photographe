@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const questions = [
   {
@@ -125,14 +127,7 @@ export default function Faq() {
             aria-hidden="true"
             className="flex size-8 items-center justify-center rounded-full border border-[#d8b884]/60 text-[#d8b884]"
           >
-            <svg viewBox="0 0 24 24" fill="none" className="size-4">
-              <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.2" />
-              <path
-                d="M12 3v5.2M20.2 8l-4.6 2.6M20.2 16l-4.6-2.6M12 21v-5.2M3.8 16l4.6-2.6M3.8 8l4.6 2.6"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-            </svg>
+            <Icon icon={compassIcon} className="size-4" />
           </span>
           <p className="text-[9px] font-bold tracking-[0.2em] text-white/55 uppercase">
             2007 <span className="mx-2 text-[#d8b884]">|</span> Guadeloupe

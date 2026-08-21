@@ -1,5 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
+import instagramIcon from "@iconify-icons/simple-icons/instagram";
+import facebookIcon from "@iconify-icons/simple-icons/facebook";
+import linkedinIcon from "@iconify-icons/simple-icons/linkedin";
+import bookIcon from "@iconify-icons/solar/book-linear";
 
 const footerSections = [
   {
@@ -36,58 +41,22 @@ const socialLinks = [
   {
     label: "Instagram",
     href: "https://www.instagram.com/patricewilfrid/",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" strokeWidth="1.4" />
-        <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.4" />
-        <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" />
-      </svg>
-    ),
+    icon: instagramIcon,
   },
   {
     label: "Facebook",
     href: "https://www.facebook.com/Patrice.W.Photographer/",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <path
-          d="M14.5 8.5h2V5.2c-.35-.05-1.53-.15-2.9-.15-2.87 0-4.84 1.75-4.84 4.97v2.63H6.4v3.68h2.86V21h3.7v-4.67h2.75l.44-3.68h-3.19V10.4c0-1.06.29-1.9 1.54-1.9Z"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: facebookIcon,
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/wilfrid-patrice-070bb317",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M7.8 10.3v6.4M7.8 7.6v.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-        <path
-          d="M11.2 16.7v-3.7c0-1.5 1-2.7 2.4-2.7 1.3 0 2.1.9 2.1 2.7v3.7"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-        <path d="M11.2 10.3v6.4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: linkedinIcon,
   },
   {
     label: "Portfolio",
     href: "https://patricewilfrid.myportfolio.com/photoshoot-mariage",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <path
-          d="M12 6.5c-1.7-1.3-4-2-6.5-2v13c2.5 0 4.8.7 6.5 2m0-13c1.7-1.3 4-2 6.5-2v13c-2.5 0-4.8.7-6.5 2m0-13v13"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: bookIcon,
   },
 ];
 
@@ -253,7 +222,7 @@ export default function SiteFooter() {
                     aria-label={social.label}
                     className="text-white/60 transition-colors hover:text-[#d8b884]"
                   >
-                    {social.icon}
+                    <Icon icon={social.icon} aria-hidden="true" className="size-5" />
                   </a>
                 </li>
               ))}

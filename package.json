@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@iconify-icons/simple-icons": "^2.0.0",
     "@iconify-icons/solar": "^1.2.4",
     "@iconify/react": "^6.0.2",
     "next": "16.3.1",

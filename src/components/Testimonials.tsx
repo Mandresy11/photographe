@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import clockIcon from "@iconify-icons/solar/clock-circle-linear";
+import cameraIcon from "@iconify-icons/solar/camera-linear";
+import heartIcon from "@iconify-icons/solar/heart-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -254,12 +258,7 @@ export default function Testimonials() {
 
             <div className="relative z-10 mx-3 mt-5 grid grid-cols-3 gap-2 lg:hidden">
               <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
-                <span aria-hidden="true" className="text-[#b68e54]">
-                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
-                    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.3" />
-                    <path d="M12 8v4l2.5 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  </svg>
-                </span>
+                <Icon icon={clockIcon} aria-hidden="true" className="size-6 text-[#b68e54]" />
                 <span className="text-xs leading-tight text-[#14201e]/80">
                   Expérience
                   <br />
@@ -267,13 +266,7 @@ export default function Testimonials() {
                 </span>
               </div>
               <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
-                <span aria-hidden="true" className="text-[#b68e54]">
-                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
-                    <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.3" />
-                    <circle cx="12" cy="13.5" r="3.2" stroke="currentColor" strokeWidth="1.3" />
-                    <path d="M9 7 10.3 4.7h3.4L15 7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-                  </svg>
-                </span>
+                <Icon icon={cameraIcon} aria-hidden="true" className="size-6 text-[#b68e54]" />
                 <span className="text-xs leading-tight text-[#14201e]/80">
                   Guidance
                   <br />
@@ -281,15 +274,7 @@ export default function Testimonials() {
                 </span>
               </div>
               <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
-                <span aria-hidden="true" className="text-[#b68e54]">
-                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
-                    <path
-                      d="M12 20s-7.2-4.6-9.4-9A5.4 5.4 0 0 1 12 6.2 5.4 5.4 0 0 1 21.4 11c-2.2 4.4-9.4 9-9.4 9Z"
-                      stroke="currentColor"
-                      strokeWidth="1.3"
-                    />
-                  </svg>
-                </span>
+                <Icon icon={heartIcon} aria-hidden="true" className="size-6 text-[#b68e54]" />
                 <span className="text-xs leading-tight text-[#14201e]/80">
                   Souvenirs
                   <br />

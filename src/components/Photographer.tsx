@@ -1,4 +1,10 @@
 import Image from "next/image";
+import { Icon } from "@iconify/react";
+import mapPointIcon from "@iconify-icons/solar/map-point-linear";
+import calendarIcon from "@iconify-icons/solar/calendar-linear";
+import bookIcon from "@iconify-icons/solar/book-linear";
+import chatRoundLineIcon from "@iconify-icons/solar/chat-round-line-linear";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const filmSettings = ["ISO 200", "f/2.0", "1/125", "400"];
 
@@ -6,73 +12,22 @@ const stats = [
   {
     label: "Basé en",
     value: "Guadeloupe",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M12 21s-7-6.05-7-11a7 7 0 1 1 14 0c0 4.95-7 11-7 11Z"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        />
-        <circle cx="12" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.4" />
-      </svg>
-    ),
+    icon: mapPointIcon,
   },
   {
     label: "Depuis",
     value: "2007",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect
-          x="3.5"
-          y="5"
-          width="17"
-          height="15.5"
-          rx="1.5"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        />
-        <path d="M3.5 9.5h17" stroke="currentColor" strokeWidth="1.4" />
-        <path d="M8 3v3.5M16 3v3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: calendarIcon,
   },
   {
     label: "Style",
     value: "Éditorial",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M12 6.5c-1.7-1.3-4-2-6.5-2v13c2.5 0 4.8.7 6.5 2m0-13c1.7-1.3 4-2 6.5-2v13c-2.5 0-4.8.7-6.5 2m0-13v13"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: bookIcon,
   },
   {
     label: "Réponse",
     value: "rapide",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect
-          x="3.5"
-          y="6.5"
-          width="17"
-          height="12.5"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        />
-        <path
-          d="M8 6.5 10 4h4l2 2.5"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-        <circle cx="12" cy="12.5" r="3.2" stroke="currentColor" strokeWidth="1.4" />
-      </svg>
-    ),
+    icon: chatRoundLineIcon,
   },
 ];
 
@@ -118,14 +73,7 @@ function PortraitCard() {
         aria-hidden="true"
         className="absolute -bottom-5 -left-5 flex size-12 items-center justify-center rounded-full border border-[#b68e54]/65 bg-[#f3f0e9] text-[#b68e54] sm:-bottom-7 sm:-left-7 sm:size-16"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="size-6 sm:size-8">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.2" />
-          <path
-            d="M12 3v5.2M20.2 8l-4.6 2.6M20.2 16l-4.6-2.6M12 21v-5.2M3.8 16l4.6-2.6M3.8 8l4.6 2.6"
-            stroke="currentColor"
-            strokeWidth="1.2"
-          />
-        </svg>
+        <Icon icon={compassIcon} className="size-6 sm:size-8" />
       </span>
     </div>
   );
@@ -202,7 +150,7 @@ export default function Photographer() {
                   key={stat.label}
                   className="flex flex-col items-center px-3 text-center sm:border-l sm:border-[#14201e]/16 sm:first:border-l-0"
                 >
-                  <div className="size-6 text-[#b68e54] sm:size-8">{stat.icon}</div>
+                  <Icon icon={stat.icon} className="size-6 text-[#b68e54] sm:size-8" />
                   <dt className="mt-2 text-xs text-[#14201e]/48 sm:mt-4 sm:text-sm">
                     {stat.label}
                   </dt>

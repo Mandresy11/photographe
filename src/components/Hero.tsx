@@ -1,23 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
-function CompassBurst() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 34 34"
-      fill="none"
-      className="size-7 shrink-0 text-[#d8ad55]"
-    >
-      <circle cx="17" cy="17" r="4" stroke="currentColor" />
-      <path
-        d="m17 2 2.8 9.2L27.6 6.4l-4.8 7.8L32 17l-9.2 2.8 4.8 7.8-7.8-4.8L17 32l-2.8-9.2-7.8 4.8 4.8-7.8L2 17l9.2-2.8-4.8-7.8 7.8 4.8L17 2Z"
-        stroke="currentColor"
-        strokeWidth="0.9"
-      />
-    </svg>
-  );
-}
+import { Icon } from "@iconify/react";
+import compassIcon from "@iconify-icons/solar/compass-linear";
 
 export default function Hero() {
   return (
@@ -76,41 +60,21 @@ export default function Hero() {
 
         <div className="grid w-full min-w-0 grid-cols-2 items-end gap-x-5 gap-y-6 sm:gap-x-8 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-7">
           <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-            <CompassBurst />
+            <Icon icon={compassIcon} className="size-7 shrink-0 text-[#d8ad55]" />
             <div className="shrink-0 text-[7px] leading-[1.8] font-medium tracking-[0.14em] text-white/75 uppercase sm:text-[9px]">
               <p>Photographe de mariage</p>
               <p>Guadeloupe · Caraïbes · Monde</p>
             </div>
-            <span className="ml-5 hidden h-px min-w-10 flex-1 bg-white/22 xl:block" />
           </div>
 
           <p
-            className="hidden whitespace-nowrap text-center text-lg italic tracking-[0.02em] text-[#d8ad55]/85 lg:block xl:text-xl"
+            className="col-start-3 hidden whitespace-nowrap text-right text-lg italic tracking-[0.02em] text-[#d8ad55]/85 lg:block xl:text-xl"
             style={{
               fontFamily: '"Segoe Script", "Brush Script MT", cursive',
             }}
           >
             L’élégance est une promesse tenue.
           </p>
-
-          <div className="flex min-w-0 items-center justify-end gap-5">
-            <span className="hidden h-px min-w-10 flex-1 bg-white/22 xl:block" />
-            <div className="shrink-0 text-right text-[7px] font-extrabold tracking-[0.18em] uppercase sm:text-[9px]">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 text-white transition-colors hover:text-[#e5bd6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8ad55]"
-              >
-                <span className="sm:hidden">Réserver</span>
-                <span className="hidden sm:inline">Réserver ma date</span>
-                <span
-                  aria-hidden="true"
-                  className="text-[#d8ad55] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  ↗
-                </span>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </section>
