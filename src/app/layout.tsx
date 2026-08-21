@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
+import FloatingBookButton from "@/components/FloatingBookButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         {children}
         <SiteFooter />
+        <FloatingBookButton />
       </body>
     </html>
   );

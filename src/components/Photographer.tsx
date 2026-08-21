@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const filmSettings = ["ISO 200", "f/2.0", "1/125", "400"];
 
@@ -197,16 +196,6 @@ export default function Photographer() {
               </p>
             </div>
 
-            <div className="mt-6 hidden justify-center sm:flex sm:mt-7">
-              <Link
-                href="/contact"
-                className="cta-button cta-dark inline-flex min-h-11 w-fit items-center gap-4 bg-[#14201e] px-7 text-[9px] font-bold tracking-[0.2em] text-white uppercase transition-colors hover:bg-[#9a713a]"
-              >
-                Réserver ma date
-                <span aria-hidden="true">↗</span>
-              </Link>
-            </div>
-
             <dl className="mt-[clamp(1.5rem,4svh,2rem)] grid grid-cols-2 gap-y-4 sm:mt-8 sm:grid-cols-4 sm:gap-y-0 lg:mt-[clamp(2rem,5svh,3rem)]">
               {stats.map((stat) => (
                 <div
@@ -224,15 +213,6 @@ export default function Photographer() {
               ))}
             </dl>
 
-            <div className="mt-8 flex justify-center sm:hidden">
-              <Link
-                href="/contact"
-                className="cta-button cta-dark inline-flex min-h-11 w-fit items-center gap-4 bg-[#14201e] px-7 text-[9px] font-bold tracking-[0.2em] text-white uppercase transition-colors hover:bg-[#9a713a]"
-              >
-                Réserver ma date
-                <span aria-hidden="true">↗</span>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

@@ -93,6 +93,7 @@ function FlowerMark() {
 
 export default function Prestations() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const showPrevious = () => {
     setActiveIndex((current) =>
@@ -159,7 +160,20 @@ export default function Prestations() {
               aria-roledescription="carrousel"
               aria-label="Prestations photographiques"
               aria-live="polite"
-              className="relative h-[26rem] sm:h-[28rem] lg:h-[clamp(24rem,46svh,31rem)]"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") showPrevious();
+                if (event.key === "ArrowRight") showNext();
+              }}
+              onTouchStart={(event) => setTouchStart(event.touches[0].clientX)}
+              onTouchEnd={(event) => {
+                if (touchStart === null) return;
+                const distance = touchStart - event.changedTouches[0].clientX;
+                if (distance > 50) showNext();
+                if (distance < -50) showPrevious();
+                setTouchStart(null);
+              }}
+              className="relative h-[22rem] outline-none sm:h-[28rem] lg:h-[clamp(24rem,46svh,31rem)] focus-visible:ring-1 focus-visible:ring-[#b68e54]"
             >
               {offerings.map((offering) => {
                 const distance = getDistance(offerings.indexOf(offering));
@@ -183,8 +197,8 @@ export default function Prestations() {
                       isVisible ? "" : "pointer-events-none"
                     } ${
                       isActive
-                        ? "border-white/10 bg-[#14201e] text-white"
-                        : "border-[#d8b884]/50 bg-[#f2ede0]"
+                        ? "border-[#d8b884]/70 bg-[#14201e] text-white"
+                        : "border-[#d8b884]/70 bg-[#f2ede0]"
                     } ${
                       distance === 0
                         ? "block"
@@ -201,22 +215,27 @@ export default function Prestations() {
                           isActive ? "opacity-100" : "pointer-events-none opacity-0"
                         }`}
                       >
-                        <div className="flex min-w-0 flex-col justify-center px-7 py-8 sm:px-9 sm:py-10 lg:px-[clamp(2rem,2.7vw,3.25rem)] lg:py-[clamp(2rem,4svh,3.25rem)]">
-                          <p
-                            className={`${bodoni.className} text-2xl text-[#d8b884] lg:text-3xl`}
-                          >
-                            {offering.number}
-                          </p>
+                        <div className="relative flex min-w-0 flex-col justify-center overflow-hidden px-7 py-8 sm:px-9 sm:py-10 lg:px-[clamp(2rem,2.7vw,3.25rem)] lg:py-[clamp(2rem,4svh,3.25rem)]">
+                          <Image
+                            src={offering.image}
+                            alt=""
+                            aria-hidden="true"
+                            fill
+                            sizes="(max-width: 639px) 92vw, 0px"
+                            className="object-cover saturate-[0.86] sm:hidden"
+                            style={{ objectPosition: offering.position }}
+                          />
+                          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(20,32,30,0.94)_0%,rgba(20,32,30,0.72)_55%,rgba(20,32,30,0.4)_100%)] sm:hidden" />
 
                           <h3
-                            className={`${bodoni.className} mt-6 max-w-[9ch] text-3xl leading-[1.02] font-medium tracking-[-0.035em] lg:text-[2.35rem]`}
+                            className={`${bodoni.className} relative mt-6 max-w-[9ch] text-3xl leading-[1.02] font-medium tracking-[-0.035em] lg:text-[2.35rem]`}
                           >
                             {offering.title}
                           </h3>
-                          <span className="mt-6 text-2xl leading-none text-[#d8b884]">
+                          <span className="relative mt-6 text-2xl leading-none text-[#d8b884]">
                             ✦
                           </span>
-                          <p className="mt-6 max-w-[16rem] text-sm leading-7 text-white/70 lg:text-base">
+                          <p className="relative mt-6 max-w-[16rem] text-sm leading-7 text-white/70 lg:text-base">
                             {offering.detail}
                           </p>
                         </div>
@@ -239,11 +258,6 @@ export default function Prestations() {
                           isActive ? "pointer-events-none opacity-0" : "opacity-100"
                         }`}
                       >
-                        <p
-                          className={`${bodoni.className} text-2xl text-[#b68e54]`}
-                        >
-                          {offering.number}
-                        </p>
                         <h3
                           className={`${bodoni.className} mt-4 max-w-[9ch] text-2xl leading-[1.05] font-medium tracking-[-0.03em] text-[#14201e]`}
                         >
