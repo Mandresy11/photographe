@@ -134,7 +134,7 @@ export default function Difference() {
       <div className="relative mx-auto w-full max-w-[1440px] px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-12">
         <div className="grid gap-14 lg:grid-cols-[0.6fr_1.4fr] lg:items-center lg:gap-16">
           <div>
-            <p className="text-[11px] font-extrabold tracking-[0.3em] text-[#b68e54] uppercase">
+            <p className="text-center text-[11px] font-extrabold tracking-[0.3em] text-[#b68e54] uppercase lg:text-left">
               La différence
             </p>
             <h2 className="editorial-title editorial-title-dark mt-6 max-w-[8ch] text-5xl font-extrabold leading-[0.88] tracking-[-0.065em] uppercase sm:text-6xl lg:mt-4 lg:text-[2.6rem]">

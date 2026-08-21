@@ -96,10 +96,6 @@ export default function Hero() {
           <div className="flex min-w-0 items-center justify-end gap-5">
             <span className="hidden h-px min-w-10 flex-1 bg-white/22 xl:block" />
             <div className="shrink-0 text-right text-[7px] font-extrabold tracking-[0.18em] uppercase sm:text-[9px]">
-              <div className="mb-3 flex items-center justify-end gap-6 text-white/55">
-                <span>01</span>
-                <span>08</span>
-              </div>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 text-white transition-colors hover:text-[#e5bd6b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d8ad55]"

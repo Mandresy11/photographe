@@ -65,7 +65,7 @@ function MobileSteps() {
   return (
     <div className="relative z-10 mx-auto flex w-full max-w-[1680px] flex-col px-5 pt-24 pb-16 sm:px-8 sm:pt-28 lg:hidden">
       <header>
-        <p className="text-[10px] font-extrabold tracking-[0.32em] text-[#d8b884] uppercase sm:text-[11px]">
+        <p className="text-center text-[10px] font-extrabold tracking-[0.32em] text-[#d8b884] uppercase sm:text-[11px]">
           Comment ça se passe
         </p>
       </header>
@@ -116,11 +116,6 @@ function MobileSteps() {
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b100e] via-[#0b100e]/10 to-transparent" />
-              <span
-                className={`${bodoni.className} absolute top-4 left-5 text-3xl leading-none text-[#d8b884]`}
-              >
-                {step.number}
-              </span>
             </div>
 
             <div className="p-6 pb-20">
@@ -179,7 +174,7 @@ function MobileSteps() {
 
       <Link
         href="/contact"
-        className="cta-button cta-ghost-light mt-8 inline-flex min-h-[3.25rem] w-fit items-center gap-16 border-[#d8b884]/75 px-8 text-[9px] font-extrabold tracking-[0.24em] uppercase"
+        className="cta-button cta-ghost-light mt-8 inline-flex min-h-[3.25rem] w-fit items-center gap-16 self-center border-[#d8b884]/75 px-8 text-[9px] font-extrabold tracking-[0.24em] uppercase"
       >
         Parlons
         <span aria-hidden="true">→</span>

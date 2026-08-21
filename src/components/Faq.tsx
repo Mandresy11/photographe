@@ -51,7 +51,7 @@ export default function Faq() {
       <div className="relative z-10 flex min-h-svh flex-col px-6 pt-24 pb-8 sm:px-10 sm:pt-28 sm:pb-10 lg:h-full lg:min-h-0 lg:px-14 lg:pt-24 lg:pb-10">
         <div className="my-auto grid gap-12 py-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
-            <p className="text-[11px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase">
+            <p className="text-center text-[11px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase lg:text-left">
               Questions
             </p>
             <h2 className="editorial-title editorial-title-light mt-6 text-[2rem] font-black leading-[0.9] tracking-[-0.045em] text-pretty uppercase sm:max-w-[9ch] sm:text-6xl sm:text-balance lg:text-[3.4rem]">

@@ -170,7 +170,7 @@ export default function Photographer() {
           </div>
 
           <div className="lg:translate-y-[clamp(0rem,3.4svh,2rem)]">
-            <p className="text-[11px] font-extrabold tracking-[0.3em] text-[#b68e54] uppercase">
+            <p className="text-center text-[11px] font-extrabold tracking-[0.3em] text-[#b68e54] uppercase lg:text-left">
               Le photographe
             </p>
             <h2 className="editorial-title editorial-title-dark mt-[clamp(1.25rem,3svh,1.5rem)] text-[clamp(2.15rem,5.2svh,2.65rem)] font-black leading-[0.88] tracking-[-0.035em] uppercase sm:mt-8 sm:text-[3.5rem] lg:mt-[clamp(2rem,6.8svh,4rem)] lg:origin-left lg:scale-x-[0.97] lg:text-[clamp(3.8rem,min(6.8vw,12svh),7.2rem)] [font-family:Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif]">

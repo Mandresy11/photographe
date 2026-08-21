@@ -89,13 +89,14 @@ export default function Testimonials() {
           }}
           className="mt-10 grid items-stretch gap-8 outline-none focus-visible:ring-2 focus-visible:ring-[#8f6936] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f7f4ed] lg:mt-[clamp(1rem,calc(8.7svh-2.5rem),4.5rem)] lg:min-h-[clamp(24rem,calc(75.7svh-6.4rem),45rem)] lg:grid-cols-[minmax(0,0.77fr)_minmax(0,1fr)] lg:gap-[clamp(0.625rem,1vw,0.875rem)]"
         >
-          <div className="relative isolate">
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 right-3 left-0 rounded-[2rem] border border-[#ddd5c7] bg-[#eee8dd] lg:right-4 lg:rounded-[2.2rem]"
-            />
+          <div className="relative isolate pb-8 lg:pb-0">
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute inset-y-0 right-3 left-0 rounded-[2rem] border border-[#ddd5c7] bg-[#eee8dd] lg:right-4 lg:rounded-[2.2rem]"
+              />
 
-            <article className="relative z-10 mt-3 ml-3 flex min-h-[31rem] w-[calc(100%-0.75rem)] flex-col rounded-[1.8rem] border border-[#e5ded1] bg-[#fcfaf5]/95 p-7 shadow-[0_24px_48px_rgba(56,45,28,0.12)] backdrop-blur-sm sm:min-h-[33rem] sm:p-10 lg:mt-8 lg:ml-8 lg:min-h-[clamp(22rem,calc(75.7svh-8.4rem),43rem)] lg:w-[calc(100%-2rem)] lg:rounded-[2.2rem] lg:p-[clamp(1.5rem,calc(7svh-1.2rem),3.5rem)] lg:pb-[clamp(1.5rem,4svh,2.75rem)]">
+              <article className="relative z-10 mt-3 ml-3 flex min-h-0 w-[calc(100%-0.75rem)] flex-col rounded-[1.8rem] border border-[#e5ded1] bg-[#fcfaf5]/95 p-7 shadow-[0_24px_48px_rgba(56,45,28,0.12)] backdrop-blur-sm sm:p-10 lg:mt-8 lg:ml-8 lg:min-h-[clamp(22rem,calc(75.7svh-8.4rem),43rem)] lg:w-[calc(100%-2rem)] lg:rounded-[2.2rem] lg:p-[clamp(1.5rem,calc(7svh-1.2rem),3.5rem)] lg:pb-[clamp(1.5rem,4svh,2.75rem)]">
               <div className="relative grid">
                 {testimonials.map((testimonial, index) => (
                   <blockquote
@@ -122,7 +123,7 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <div className="mt-auto pt-8 lg:pt-[clamp(0.75rem,2svh,2.75rem)]">
+              <div className="mt-6 pt-6 lg:mt-auto lg:pt-[clamp(0.75rem,2svh,2.75rem)]">
                 <div className="h-px bg-[#14201e]/14" aria-hidden="true" />
 
                 <div
@@ -146,7 +147,7 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                <div className="mt-8 flex items-center justify-between gap-3 sm:gap-5 lg:mt-[clamp(0.75rem,calc(8svh-2.85rem),2.75rem)]">
+                <div className="mt-8 hidden items-center justify-between gap-3 sm:gap-5 lg:flex lg:mt-[clamp(0.75rem,calc(8svh-2.85rem),2.75rem)]">
                   <div className="flex items-center gap-3">
                     <button
                       type="button"
@@ -186,7 +187,7 @@ export default function Testimonials() {
 
                 <Link
                   href="/contact"
-                  className="cta-button cta-dark relative mt-8 flex min-h-14 w-full items-center justify-center rounded-[1.25rem] px-14 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:mt-[clamp(0.75rem,calc(7svh-2.25rem),2.75rem)] lg:h-[clamp(3.5rem,7svh,4.75rem)] lg:text-[11px]"
+                  className="cta-button cta-dark relative mt-8 hidden min-h-14 w-full items-center justify-center rounded-[1.25rem] px-14 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:flex lg:mt-[clamp(0.75rem,calc(7svh-2.25rem),2.75rem)] lg:h-[clamp(3.5rem,7svh,4.75rem)] lg:text-[11px]"
                 >
                   Écrivez votre histoire
                   <span
@@ -198,9 +199,120 @@ export default function Testimonials() {
                 </Link>
               </div>
             </article>
+            </div>
+
+            <div className="relative z-20 mx-auto -mt-8 aspect-square w-[68%] max-w-[16rem] overflow-hidden rounded-[1.5rem] shadow-[0_20px_40px_rgba(56,45,28,0.22)] lg:hidden">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={testimonial.image}
+                  aria-hidden={activeIndex !== index}
+                  className={`absolute inset-0 transition-[opacity,transform] duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
+                    activeIndex === index
+                      ? "opacity-100"
+                      : "pointer-events-none opacity-0"
+                  }`}
+                >
+                  <Image
+                    src={testimonial.image}
+                    alt={activeIndex === index ? testimonial.alt : ""}
+                    fill
+                    sizes="70vw"
+                    className={`object-cover ${testimonial.position}`}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="relative z-10 mt-4 flex items-center justify-center gap-3 lg:hidden">
+              <button
+                type="button"
+                onClick={showPrevious}
+                aria-label="Afficher l’avis précédent"
+                className="group flex size-10 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white"
+              >
+                <span
+                  aria-hidden="true"
+                  className="transition-transform group-hover:-translate-x-0.5"
+                >
+                  ←
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={showNext}
+                aria-label="Afficher l’avis suivant"
+                className="group flex size-10 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white"
+              >
+                <span
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </button>
+            </div>
+
+            <div className="relative z-10 mx-3 mt-5 grid grid-cols-3 gap-2 lg:hidden">
+              <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
+                <span aria-hidden="true" className="text-[#b68e54]">
+                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
+                    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.3" />
+                    <path d="M12 8v4l2.5 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <span className="text-xs leading-tight text-[#14201e]/80">
+                  Expérience
+                  <br />
+                  fluide
+                </span>
+              </div>
+              <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
+                <span aria-hidden="true" className="text-[#b68e54]">
+                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
+                    <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.3" />
+                    <circle cx="12" cy="13.5" r="3.2" stroke="currentColor" strokeWidth="1.3" />
+                    <path d="M9 7 10.3 4.7h3.4L15 7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <span className="text-xs leading-tight text-[#14201e]/80">
+                  Guidance
+                  <br />
+                  poses
+                </span>
+              </div>
+              <div className="flex h-[6.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-[#e5ded1] bg-[#fcfaf5]/80 px-2 text-center">
+                <span aria-hidden="true" className="text-[#b68e54]">
+                  <svg viewBox="0 0 24 24" fill="none" className="size-6">
+                    <path
+                      d="M12 20s-7.2-4.6-9.4-9A5.4 5.4 0 0 1 12 6.2 5.4 5.4 0 0 1 21.4 11c-2.2 4.4-9.4 9-9.4 9Z"
+                      stroke="currentColor"
+                      strokeWidth="1.3"
+                    />
+                  </svg>
+                </span>
+                <span className="text-xs leading-tight text-[#14201e]/80">
+                  Souvenirs
+                  <br />
+                  authentiques
+                </span>
+              </div>
+            </div>
+
+            <Link
+              href="/contact"
+              className="cta-button cta-dark relative z-10 mx-3 mt-4 flex min-h-14 items-center justify-center rounded-[1.25rem] px-14 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:hidden"
+            >
+              Écrivez votre histoire
+              <span
+                aria-hidden="true"
+                style={{ position: "absolute", right: "1.75rem" }}
+              >
+                ↗
+              </span>
+            </Link>
           </div>
 
-          <figure className="relative min-h-[24rem] overflow-hidden rounded-[1.8rem] bg-[#d7d0c5] shadow-[0_24px_48px_rgba(56,45,28,0.12)] sm:min-h-[32rem] lg:min-h-0 lg:rounded-[1.5rem]">
+          <figure className="relative hidden min-h-[24rem] overflow-hidden rounded-[1.8rem] bg-[#d7d0c5] shadow-[0_24px_48px_rgba(56,45,28,0.12)] sm:min-h-[32rem] lg:block lg:min-h-0 lg:rounded-[1.5rem]">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.image}

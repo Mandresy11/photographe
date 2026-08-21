@@ -111,15 +111,10 @@ export default function Navbar() {
         >
           <ApertureMark expanded={isHeroNavbar} />
           <span className="truncate font-[Georgia] text-[10px] font-normal tracking-[0.22em] uppercase sm:text-[15px]">
-            <span className="sm:hidden">PW</span>
-            <span className="hidden sm:inline">Patrice Wilfrid</span>
+            Patrice Wilfrid
             <span className="text-[#d8b884]">.</span>
           </span>
         </Link>
-
-        <span className="hidden items-center border-l border-white/15 pl-4 text-[8px] font-bold tracking-[0.24em] text-[#d8b884]/70 uppercase sm:flex">
-          {isHeroNavbar ? "RAW · 35 mm" : "Photographe de mariage"}
-        </span>
 
         <ul className="mx-auto hidden items-center gap-1 xl:flex 2xl:gap-5">
           {navItems.map((item) => (
@@ -217,13 +212,13 @@ export default function Navbar() {
                 {item.label}
                 <span
                   aria-hidden="true"
-                  className={`flex size-8 shrink-0 items-center justify-center rounded-xl border transition-[color,background-color,border-color,transform] duration-300 ${
+                  className={`flex size-10 shrink-0 items-center justify-center rounded-xl border transition-[color,background-color,border-color,transform] duration-300 ${
                     pathname === item.href
                       ? "border-[#d8b884]/55 bg-[#d8b884]/14 text-[#f0d29b]"
                       : "border-white/10 bg-white/[0.035] text-[#d8b884]/72 group-hover:scale-105 group-hover:border-[#d8b884]/35 group-hover:text-[#f0d29b]"
                   }`}
                 >
-                  <Icon icon={item.icon} width="17" height="17" />
+                  <Icon icon={item.icon} width="22" height="22" />
                 </span>
               </Link>
             </li>

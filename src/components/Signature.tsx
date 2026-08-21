@@ -33,7 +33,7 @@ export default function Signature() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,10,9,0.42)_0%,transparent_45%,rgba(3,10,9,0.9)_100%)]" />
 
       <div className="relative z-10 mx-auto flex min-h-[88svh] max-w-[1440px] flex-col px-5 py-10 sm:px-8 lg:h-full lg:min-h-0 lg:px-12 lg:py-10">
-        <p className="text-[11px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase">
+        <p className="text-center text-[11px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase lg:text-left">
           La signature
         </p>
 

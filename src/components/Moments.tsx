@@ -167,7 +167,7 @@ export default function Moments() {
           );
         })}
 
-        <header className="pointer-events-none absolute top-0 right-0 left-0 z-20 flex items-center justify-between px-5 pt-24 pb-8 sm:px-8 sm:pt-28 sm:pb-8 lg:px-12 lg:pt-24 lg:pb-10">
+        <header className="pointer-events-none absolute top-0 right-0 left-0 z-20 flex items-center justify-center px-5 pt-24 pb-8 sm:justify-between sm:px-8 sm:pt-28 sm:pb-8 lg:px-12 lg:pt-24 lg:pb-10">
           <p className="text-[11px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase">
             L’invisible
           </p>
