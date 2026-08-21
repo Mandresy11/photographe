@@ -52,7 +52,7 @@ export default function Gallery() {
       className="relative overflow-hidden bg-[#0b0906] text-white"
     >
       <Image
-        src="/images/galerie/back.png"
+        src="/web/galerie/back.png"
         alt=""
         aria-hidden="true"
         fill
@@ -111,7 +111,7 @@ export default function Gallery() {
 
           <div className="relative order-first col-span-2 mx-auto aspect-square w-full max-w-[15rem] sm:order-none sm:col-auto sm:max-w-none">
             <Image
-              src="/images/galerie/objectif.png"
+              src="/web/galerie/objectif.png"
               alt="Objectif photographique gravé Patrice Wilfrid, photographe"
               fill
               sizes="(max-width: 1023px) 60vw, 22vw"
