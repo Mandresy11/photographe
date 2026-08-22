@@ -10,6 +10,7 @@ import questionIcon from "@iconify-icons/solar/question-circle-linear";
 import routingIcon from "@iconify-icons/solar/routing-linear";
 import starIcon from "@iconify-icons/solar/star-linear";
 import apertureIcon from "@iconify-icons/solar/camera-linear";
+import calendarIcon from "@iconify-icons/solar/calendar-linear";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -127,16 +128,14 @@ export default function Navbar() {
 
         <Link
           href="/contact"
-          className={`cta-button cta-navbar ml-auto hidden min-h-12 items-center gap-5 rounded-full bg-[#d8b884] px-7 text-[9px] font-extrabold tracking-[0.2em] text-[#08100e] uppercase transition-colors hover:bg-[#ead2ab] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:inline-flex xl:ml-0 xl:px-9 ${
+          className={`cta-button cta-navbar ml-auto hidden min-h-12 items-center gap-5 rounded-full bg-[#d8b884] px-7 text-[11px] font-extrabold tracking-[0.2em] text-[#08100e] uppercase transition-colors hover:bg-[#ead2ab] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:inline-flex xl:ml-0 xl:px-9 ${
             isHeroNavbar
               ? "2xl:mr-4 2xl:border 2xl:border-[#d8ad55] 2xl:bg-transparent 2xl:text-[#d8ad55] 2xl:hover:bg-[#d8ad55] 2xl:hover:text-[#08100e]"
               : ""
           }`}
         >
           Réserver
-          <span aria-hidden="true" className="text-sm leading-none">
-            ↗
-          </span>
+          <Icon icon={calendarIcon} className="size-4" aria-hidden="true" />
         </Link>
 
         <button

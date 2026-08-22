@@ -78,7 +78,7 @@ export default function Gallery() {
         </p>
 
         <div className="mt-14 grid w-full grid-cols-[1fr_1fr] items-center gap-4 sm:grid-cols-[1.3fr_1fr_1.5fr_1fr_1.3fr] sm:gap-5 lg:mt-16 lg:gap-6">
-          <div className="hidden aspect-[3/4] overflow-hidden rounded-md border border-white/80 sm:block">
+          <div className="aspect-[3/4] overflow-hidden rounded-md border border-white/80">
             <Image
               src={leftPhotos[0].src}
               alt={leftPhotos[0].alt}
@@ -109,12 +109,12 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="relative order-first col-span-2 mx-auto aspect-square w-full max-w-[15rem] sm:order-none sm:col-auto sm:max-w-none">
+          <div className="relative hidden aspect-square w-full sm:block">
             <Image
               src="/web/galerie/objectif.png"
               alt="Objectif photographique gravé Patrice Wilfrid, photographe"
               fill
-              sizes="(max-width: 1023px) 60vw, 22vw"
+              sizes="22vw"
               className="object-contain"
             />
           </div>
@@ -138,7 +138,7 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="hidden aspect-[3/4] overflow-hidden rounded-md border border-white/80 sm:block">
+          <div className="aspect-[3/4] overflow-hidden rounded-md border border-white/80">
             <Image
               src={rightPhotos[2].src}
               alt={rightPhotos[2].alt}
@@ -159,7 +159,7 @@ export default function Gallery() {
           <span aria-hidden="true">→</span>
         </Link>
 
-        <p className="mt-8 flex items-center gap-3 text-[10px] font-semibold tracking-[0.22em] text-white/55 uppercase">
+        <p className="mt-8 flex items-center gap-3 text-[10px] font-semibold tracking-[0.22em] text-white uppercase">
           <span aria-hidden="true" className="text-[#d8b884]">
             ⬡
           </span>

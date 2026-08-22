@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "@iconify/react";
-import compassIcon from "@iconify-icons/solar/compass-linear";
 
 const questions = [
   {
@@ -122,17 +120,6 @@ export default function Faq() {
           ))}
         </div>
 
-        <footer className="flex items-center justify-between">
-          <span
-            aria-hidden="true"
-            className="flex size-8 items-center justify-center rounded-full border border-[#d8b884]/60 text-[#d8b884]"
-          >
-            <Icon icon={compassIcon} className="size-4" />
-          </span>
-          <p className="text-[9px] font-bold tracking-[0.2em] text-white/55 uppercase">
-            2007 <span className="mx-2 text-[#d8b884]">|</span> Guadeloupe
-          </p>
-        </footer>
       </div>
     </section>
   );

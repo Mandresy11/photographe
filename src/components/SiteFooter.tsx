@@ -5,6 +5,7 @@ import instagramIcon from "@iconify-icons/simple-icons/instagram";
 import facebookIcon from "@iconify-icons/simple-icons/facebook";
 import linkedinIcon from "@iconify-icons/simple-icons/linkedin";
 import bookIcon from "@iconify-icons/solar/book-linear";
+import penIcon from "@iconify-icons/solar/pen-2-linear";
 
 const footerSections = [
   {
@@ -116,12 +117,6 @@ export default function SiteFooter() {
           />
           <span
             aria-hidden="true"
-            className="absolute top-1 left-1/2 flex -translate-x-1/2 items-center text-[#c7a05c]"
-          >
-            <span className="mx-2 size-3 rotate-45 border border-[#c7a05c]" />
-          </span>
-          <span
-            aria-hidden="true"
             className="absolute top-24 right-5 h-7 w-7 rounded-tr-xl border-t border-r border-[#c7a05c]/75 sm:right-10 lg:top-24 lg:right-14"
           />
           <span
@@ -190,10 +185,10 @@ export default function SiteFooter() {
               </p>
               <Link
                 href="/contact"
-                className="cta-button cta-primary mt-8 inline-flex min-h-12 w-fit items-center gap-6 px-8 text-[9px] font-extrabold tracking-[0.22em] uppercase"
+                className="cta-button cta-primary mt-8 inline-flex min-h-12 w-fit items-center gap-6 px-8 text-[11px] font-extrabold tracking-[0.22em] uppercase"
               >
-                Écrire la suite
-                <span aria-hidden="true">↗</span>
+                Nous contacter
+                <Icon icon={penIcon} className="size-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
