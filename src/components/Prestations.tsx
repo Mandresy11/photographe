@@ -126,19 +126,13 @@ export default function Prestations() {
             Sur mesure, selon votre journée.
           </h2>
 
-          <div className="mt-8 flex max-w-[28rem] items-center gap-2 text-[#b68e54]">
-            <span className="h-px flex-1 bg-[#b68e54]/75" />
-            <span className="size-2 rotate-45 bg-[#b68e54]" />
-            <span className="h-px flex-1 bg-[#14201e]/18" />
-          </div>
-
           <p className="mt-7 max-w-md text-sm leading-7 text-[#14201e]/62 sm:text-base sm:leading-8">
             Formules et tarifs communiqués sur demande, selon la durée de
             présence et vos besoins.
           </p>
 
           <Link
-            href="/contact"
+            href="/prestations"
             className="cta-button cta-dark mt-9 hidden min-h-14 w-fit items-center gap-8 bg-[#14201e] px-8 text-[9px] font-extrabold tracking-[0.2em] text-white uppercase shadow-[0_12px_30px_rgba(20,32,30,0.18)] transition-colors hover:bg-[#25332f] lg:inline-flex"
           >
             Voir toutes les prestations
@@ -287,7 +281,7 @@ export default function Prestations() {
           </div>
 
           <Link
-            href="/contact"
+            href="/prestations"
             className="cta-button cta-dark mx-auto mt-8 flex min-h-14 w-fit items-center gap-8 bg-[#14201e] px-8 text-[9px] font-extrabold tracking-[0.2em] text-white uppercase shadow-[0_12px_30px_rgba(20,32,30,0.18)] transition-colors hover:bg-[#25332f] lg:hidden"
           >
             Voir toutes les prestations

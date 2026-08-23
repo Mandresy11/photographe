@@ -97,19 +97,6 @@ export default function Photographer() {
         06
       </span>
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 right-[4%] hidden size-16 text-[#14201e]/20 xl:block"
-      >
-        <span className="absolute top-1/2 left-0 h-px w-5 -translate-y-1/2 bg-current" />
-        <span className="absolute top-1/2 right-0 h-px w-5 -translate-y-1/2 bg-current" />
-        <span className="absolute top-0 left-1/2 h-5 w-px -translate-x-1/2 bg-current" />
-        <span className="absolute bottom-0 left-1/2 h-5 w-px -translate-x-1/2 bg-current" />
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-lg leading-none">
-          +
-        </span>
-      </div>
-
       <div className="relative mx-auto h-full max-w-[1510px] px-5 pt-24 pb-6 sm:px-8 sm:pt-28 sm:pb-10 lg:w-[84vw] lg:max-w-[1414px] lg:px-0 lg:py-10">
         <div className="grid h-full gap-6 sm:gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
           <div className="relative mx-auto hidden w-full max-w-[17rem] sm:block lg:mx-0 lg:max-w-[min(34.5rem,calc((100svh-7rem)*0.78))] lg:-translate-y-3">

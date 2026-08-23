@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { Icon } from "@iconify/react";
+import arrowRightIcon from "@iconify-icons/solar/arrow-right-linear";
 
 export type PortfolioPhoto = {
   src: string;
@@ -293,10 +295,10 @@ export default function GalleryPageView({
           </p>
           <Link
             href="/contact"
-            className="cta-button cta-primary inline-flex min-h-12 w-fit items-center gap-5 px-7 text-[9px] font-extrabold tracking-[0.2em] uppercase"
+            className="cta-button cta-primary inline-flex min-h-12 w-fit items-center gap-5 px-7 text-[11px] font-extrabold tracking-[0.18em] uppercase"
           >
             Imaginer mon reportage
-            <span aria-hidden="true">↗</span>
+            <Icon icon={arrowRightIcon} className="size-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

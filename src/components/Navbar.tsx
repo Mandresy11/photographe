@@ -17,11 +17,11 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Accueil", href: "/", icon: homeIcon },
-  { label: "Prestations", href: "/#prestations", icon: giftIcon },
-  { label: "Comment ça se passe", href: "/#deroulement", icon: routingIcon },
+  { label: "Prestations", href: "/prestations", icon: giftIcon },
+  { label: "Comment ça se passe", href: "/comment-ca-se-passe", icon: routingIcon },
   { label: "Le photographe", href: "/photographe", icon: cameraIcon },
   { label: "Galerie", href: "/galerie", icon: galleryIcon },
-  { label: "Avis clients", href: "/#avis", icon: starIcon },
+  { label: "Avis clients", href: "/avis-clients", icon: starIcon },
   { label: "Questions", href: "/questions", icon: questionIcon },
   { label: "Contact", href: "/contact", icon: messageIcon },
 ];

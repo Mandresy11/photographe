@@ -35,7 +35,11 @@ const testimonials = [
   },
 ] as const;
 
-export default function Testimonials() {
+export default function Testimonials({
+  hideLabel = false,
+}: {
+  hideLabel?: boolean;
+}) {
   const [activeIndex, setActiveIndex] = useState(1);
   const activeTestimonial = testimonials[activeIndex];
 
@@ -64,9 +68,11 @@ export default function Testimonials() {
 
       <div className="relative mx-auto flex min-h-svh max-w-[1800px] flex-col px-5 pt-24 pb-12 sm:px-8 sm:pt-28 lg:px-[3.4vw] lg:pt-[clamp(5.75rem,10svh,7rem)] lg:pb-[clamp(1.25rem,4svh,2.75rem)]">
         <header className="text-center">
-          <p className="text-[10px] font-extrabold tracking-[0.34em] text-[#765629] uppercase sm:text-[11px]">
-            Avis clients
-          </p>
+          {!hideLabel && (
+            <p className="text-[10px] font-extrabold tracking-[0.34em] text-[#765629] uppercase sm:text-[11px]">
+              Avis clients
+            </p>
+          )}
           <h2
             id="avis-title"
             className={`${bodoni.className} mx-auto mt-4 max-w-[74rem] text-[clamp(2.75rem,5.3vw,5.5rem)] leading-[0.94] tracking-[-0.05em] text-balance`}
