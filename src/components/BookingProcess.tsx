@@ -1,8 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
 import { Icon } from "@iconify/react";
-import arrowIcon from "@iconify-icons/solar/arrow-right-linear";
+import letterIcon from "@iconify-icons/solar/letter-linear";
+import documentAddIcon from "@iconify-icons/solar/document-add-linear";
+import checkCircleIcon from "@iconify-icons/solar/check-circle-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -14,107 +15,122 @@ const bookingSteps = [
     number: "01",
     title: "Contact & disponibilités",
     text: "Vous m’écrivez avec votre date et votre lieu.",
+    icon: letterIcon,
   },
   {
     number: "02",
     title: "Acompte & contrat",
     text: "Un contrat clair et un acompte confirment votre réservation.",
+    icon: documentAddIcon,
   },
   {
     number: "03",
     title: "Confirmation",
     text: "Votre date est bloquée dans mon agenda.",
+    icon: checkCircleIcon,
   },
 ];
 
 export default function BookingProcess() {
   return (
-    <section id="reservation" className="relative bg-[#faf7f0] text-[#13201e]">
-      <div className="grid lg:grid-cols-[0.62fr_1.38fr]">
-        <div className="relative flex flex-col justify-between gap-10 px-6 py-14 sm:px-10 sm:py-16 lg:px-12 lg:py-0">
-          <div>
-            <div className="flex items-center gap-3 text-[#9a713a]">
-              <span className="text-[10px] font-extrabold tracking-[0.28em] uppercase">
-                La réservation
-              </span>
-            </div>
+    <section
+      id="reservation"
+      aria-labelledby="reservation-title"
+      className="relative overflow-hidden bg-[#101211] text-white"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_18%,rgba(255,255,255,0.035),transparent_32%),radial-gradient(circle_at_66%_84%,rgba(216,184,132,0.025),transparent_34%)]"
+      />
 
-            <h2
-              className={`${bodoni.className} mt-6 max-w-[9ch] text-[3rem] leading-[0.94] font-medium tracking-[-0.03em] uppercase sm:text-[3.75rem] lg:text-[3.25rem] xl:text-[3.75rem]`}
-            >
-              Trois étapes, simplement.
-            </h2>
-
-            <p className="mt-6 max-w-xs text-sm leading-7 text-[#13201e]/60">
-              De notre premier échange à la confirmation de votre date, un
-              parcours clair et sans surprise.
-            </p>
-          </div>
-
-          <div className="relative hidden size-24 items-center justify-center rounded-full border border-[#b68e54]/50 text-[#9a713a] sm:flex">
-            <svg viewBox="0 0 100 100" className="absolute inset-0 size-full">
-              <path
-                id="badge-circle-path"
-                d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                fill="none"
-              />
-              <text className="fill-current text-[7.2px] font-bold tracking-[0.15em] uppercase">
-                <textPath href="#badge-circle-path" startOffset="0%">
-                  Patrice Wilfrid Photographe · Depuis 2007 ·
-                </textPath>
-              </text>
-            </svg>
-            <span className={`${bodoni.className} text-lg leading-none`}>PW</span>
-          </div>
-        </div>
-
-        <div className="relative min-h-[38rem] w-full overflow-hidden sm:min-h-[42rem] lg:min-h-[44rem]">
+      <div className="relative grid xl:min-h-[max(48rem,calc(100svh-5rem))] xl:grid-cols-[60%_40%] 2xl:grid-cols-[60.5%_39.5%]">
+        <figure className="relative h-[23rem] w-full overflow-hidden [clip-path:polygon(0_0,100%_0,100%_92%,0_100%)] sm:h-[31rem] xl:h-auto xl:[clip-path:polygon(0_0,100%_0,86%_100%,0_100%)]">
           <Image
             src="/web/photoo/Mariage%20Christophe%20%26%20Sandra/31122013-DSC_6613.jpg"
-            alt="Portrait complice des mariés"
+            alt="Portrait de Christophe et Sandra le jour de leur mariage"
             fill
-            sizes="(min-width: 1024px) 62vw, 100vw"
-            className="object-cover object-top grayscale"
+            sizes="(min-width: 1280px) 61vw, 100vw"
+            className="object-cover object-top xl:origin-[37%_47%] xl:scale-[1.55]"
+            style={{ filter: "grayscale(1) contrast(1.08) brightness(.72)" }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,32,30,0.2)_0%,transparent_35%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-[60%] bg-[linear-gradient(0deg,rgba(14,21,18,0.96)_0%,rgba(14,21,18,0.75)_45%,transparent_100%)]" />
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.92)_0%,rgba(8,10,9,0.38)_22%,transparent_56%),linear-gradient(90deg,rgba(8,10,9,0.12),transparent_35%)]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute top-0 right-0 hidden h-[103%] w-px origin-top rotate-[8.5deg] bg-[#d8b884]/60 xl:block"
+          />
+        </figure>
 
-          <ol className="absolute inset-x-0 bottom-0 flex flex-col divide-y divide-[#d8b884]/35 px-6 sm:px-10 lg:px-12">
-            {bookingSteps.map((step) => (
-              <li
-                key={step.number}
-                className="flex items-baseline gap-5 py-5 sm:gap-8 sm:py-7"
-              >
-                <span
-                  className={`${bodoni.className} text-4xl leading-none text-[#d8b884] sm:text-5xl`}
+        <div className="relative flex min-w-0 flex-col px-6 pt-12 pb-14 sm:px-10 sm:pt-16 sm:pb-18 lg:px-16 xl:px-10 xl:pt-[4.6rem] xl:pr-10 xl:pb-12 xl:pl-16 2xl:pr-14 2xl:pl-[5.1rem]">
+          <div className="flex items-center gap-4 text-[#c59a55]">
+            <span className="shrink-0 text-[10px] font-bold tracking-[0.3em] uppercase sm:text-[11px]">
+              La réservation
+            </span>
+            <span className="size-1.5 shrink-0 rotate-45 bg-[#d8b884]" />
+          </div>
+
+          <h2
+            id="reservation-title"
+            className={`${bodoni.className} mt-8 text-[2.9rem] leading-[0.95] font-medium tracking-[-0.035em] uppercase sm:text-[3.8rem] xl:text-[3.35rem] 2xl:text-[4rem]`}
+          >
+            <span className="block text-[#f0ede7]">Trois étapes,</span>
+            <span className="block text-[#d0ad73]">simplement.</span>
+          </h2>
+
+          <p className="mt-4 max-w-[27rem] text-sm leading-7 text-white/72 sm:text-base xl:text-[15px] 2xl:text-base">
+            De notre premier échange à la confirmation de votre date, un
+            parcours clair et sans surprise.
+          </p>
+
+          <div className="relative mt-10 xl:mt-11 2xl:mt-12 2xl:-ml-5">
+            <span
+              aria-hidden="true"
+              className="absolute top-8 bottom-8 left-8 w-px bg-[#d8b884]/35 xl:top-[-3.3rem] xl:right-auto xl:bottom-8 xl:left-[-1.6rem] 2xl:bottom-6 2xl:left-[-2.3rem]"
+            >
+              <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#dfbd7c]" />
+              <span className="absolute bottom-0 left-1/2 size-2 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#dfbd7c]" />
+            </span>
+
+            <ol className="relative flex flex-col">
+              {bookingSteps.map((step) => (
+                <li
+                  key={step.number}
+                  className="relative grid min-h-[8.75rem] grid-cols-[4rem_2rem_minmax(0,1fr)] gap-x-4 sm:grid-cols-[4.5rem_2.5rem_minmax(0,1fr)] sm:gap-x-5 xl:min-h-[8.75rem] xl:grid-cols-[4.75rem_2.5rem_minmax(0,1fr)] xl:gap-x-6 2xl:min-h-36 2xl:grid-cols-[5.5rem_3rem_minmax(0,1fr)] 2xl:gap-x-[2.125rem]"
                 >
-                  {step.number}
-                </span>
-                <span className="hidden h-8 w-px self-center bg-[#d8b884]/40 sm:block" />
-                <div>
-                  <h3
-                    className={`${bodoni.className} text-lg leading-tight text-white sm:text-xl`}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="mt-1 text-xs leading-5 text-white/75 sm:text-sm">
-                    {step.text}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-8 left-8 z-10 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#dfbd7c] xl:top-[2.4rem] xl:left-[-1.6rem] 2xl:top-[2.75rem] 2xl:left-[-2.3rem]"
+                  />
 
-      <div className="flex justify-center bg-[#14201e] py-8">
-        <Link
-          href="/contact"
-          className="cta-button cta-dark inline-flex min-h-14 w-fit items-center gap-8 bg-transparent px-9 text-[9px] font-extrabold tracking-[0.2em] text-white uppercase transition-colors hover:bg-white/5"
-        >
-          Démarrer ma réservation
-          <Icon icon={arrowIcon} className="size-4" aria-hidden="true" />
-        </Link>
+                  <span
+                    className={`${bodoni.className} relative z-10 flex size-16 shrink-0 items-center justify-center rounded-full border border-[#d8b884]/35 bg-[radial-gradient(circle_at_35%_28%,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] text-[1.8rem] leading-none text-[#d8b884] sm:size-[4.5rem] sm:text-[2rem] xl:size-[4.75rem] xl:text-[2.25rem] 2xl:size-[5.5rem] 2xl:text-[2.8rem]`}
+                  >
+                    {step.number}
+                  </span>
+
+                  <Icon
+                    icon={step.icon}
+                    className="mt-4 size-8 shrink-0 text-[#d7ae69] sm:mt-4 sm:size-10 xl:mt-5 xl:size-10 2xl:mt-6 2xl:size-12"
+                    aria-hidden="true"
+                  />
+
+                  <div className="relative min-w-0 pt-2.5 sm:pt-3 xl:pt-3.5 2xl:pt-4">
+                    <h3
+                      className={`${bodoni.className} text-lg leading-tight font-medium text-[#f2eee8] sm:text-xl 2xl:text-[1.45rem]`}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-6 text-white/64 sm:text-sm 2xl:text-[15px]">
+                      {step.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
   );

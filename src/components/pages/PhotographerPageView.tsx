@@ -142,7 +142,7 @@ export default function PhotographerPageView() {
                   <h3 className="mt-4 text-[10px] font-bold tracking-[0.18em] text-white uppercase sm:text-xs">
                     {value.title}
                   </h3>
-                  <p className="mt-3 text-[11px] leading-5 text-white/58 sm:text-sm sm:leading-6">
+                  <p className="mt-3 text-[11px] leading-5 text-white sm:text-sm sm:leading-6">
                     {value.text}
                   </p>
                 </div>

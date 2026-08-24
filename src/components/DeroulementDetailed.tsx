@@ -158,12 +158,6 @@ export default function DeroulementDetailed() {
               key={step.number}
               className="relative flex flex-col overflow-hidden rounded-[1.5rem] border border-[#13201e]/8 bg-white shadow-[0_15px_40px_-25px_rgba(20,32,30,0.35)]"
             >
-              <span
-                className={`${bodoni.className} absolute top-4 left-1/2 z-10 flex size-11 -translate-x-1/2 items-center justify-center rounded-full bg-[#faf7f0] text-sm text-[#13201e] shadow-[0_6px_16px_rgba(20,32,30,0.15)]`}
-              >
-                {step.number}
-              </span>
-
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
                   src={step.image}
