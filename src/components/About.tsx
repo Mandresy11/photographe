@@ -8,37 +8,37 @@ const journey = [
     number: "01",
     year: "2007",
     place: "La Seine",
-    label: "Premiers reportages",
+    label: "Bateaux parisiens",
     position: "left-[1%] top-[58%]",
   },
   {
     number: "02",
     year: "Paris, la nuit",
     place: "Le Lido",
-    label: "Rigueur & mouvement",
+    label: "Avec Photo du Monde",
     position: "left-[27%] top-[18%]",
   },
   {
     number: "03",
     year: "Mode",
     place: "Fashion weeks",
-    label: "Éditorial & Polaroid",
+    label: "Maisons de couture · Polaroid",
     position: "left-[56%] top-[51%]",
   },
   {
     number: "04",
     year: "Aujourd’hui",
     place: "Guadeloupe",
-    label: "Le mariage",
+    label: "Studio & mariages",
     position: "right-[1%] top-[8%]",
   },
 ];
 
 const signatures = [
-  { initial: "D", title: "Dessin", detail: "Le trait" },
-  { initial: "A", title: "Art", detail: "Le regard" },
-  { initial: "M", title: "Musique", detail: "Le rythme" },
-  { initial: "C", title: "Cuisine", detail: "La couleur" },
+  { initial: "D", title: "Dessin", detail: "Japanimation" },
+  { initial: "A", title: "Art", detail: "Histoire de l’art" },
+  { initial: "M", title: "Musique", detail: "Salsa · dancehall" },
+  { initial: "C", title: "Cuisine", detail: "Goût & couleurs" },
 ];
 
 const contactFrames = [

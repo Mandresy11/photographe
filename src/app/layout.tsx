@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Patrice Wilfrid",
   },
   description:
-    "Photographe de mariage en Guadeloupe. Un style éditorial, spontané et lumineux, pour raconter votre journée telle qu'elle a vraiment été vécue.",
+    "Photographe en Guadeloupe : mariages, photos d’identité et ePhoto agréée ANTS, photographie culinaire, portraits et événements.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

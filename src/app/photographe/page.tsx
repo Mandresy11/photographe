@@ -4,7 +4,7 @@ import PhotographerPageView from "@/components/pages/PhotographerPageView";
 export const metadata: Metadata = {
   title: "Le photographe",
   description:
-    "Rencontrez Patrice Wilfrid et découvrez son regard éditorial, naturel et discret sur le mariage.",
+    "Photographe depuis 2007, Patrice Wilfrid mêle regard éditorial, spontanéité, contrastes et lumière pour raconter les mariages en Guadeloupe.",
 };
 
 export default function PhotographerPage() {

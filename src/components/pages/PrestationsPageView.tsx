@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
@@ -15,7 +13,14 @@ import routingIcon from "@iconify-icons/solar/routing-linear";
 import usersGroupIcon from "@iconify-icons/solar/users-group-rounded-linear";
 import clapperboardIcon from "@iconify-icons/solar/clapperboard-linear";
 import cameraSquareIcon from "@iconify-icons/solar/camera-square-linear";
-import { useEffect, useRef, useState } from "react";
+import passportIcon from "@iconify-icons/solar/passport-linear";
+import userIdIcon from "@iconify-icons/solar/user-id-linear";
+import checkCircleIcon from "@iconify-icons/solar/check-circle-linear";
+import chefHatIcon from "@iconify-icons/solar/chef-hat-linear";
+import plateIcon from "@iconify-icons/solar/plate-linear";
+import starsIcon from "@iconify-icons/solar/stars-linear";
+import FormulasSection from "@/components/FormulasSection";
+import TravelSection from "@/components/TravelSection";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -83,169 +88,130 @@ const offerings = [
       { label: "Portraits", icon: cameraSquareIcon },
     ],
   },
+  {
+    number: "05",
+    title: "Identité & ePhoto",
+    meta: "Agréé services en ligne ANTS",
+    text: "Photos d’identité conformes pour cartes d’identité et passeports, ainsi que photo-signature numérique ePhoto pour vos démarches de permis de conduire.",
+    image: "/web/photoo/04122025-_DSC0025.jpg",
+    alt: "Patrice Wilfrid dans son studio photographique",
+    position: "object-[center_28%]",
+    steps: [
+      { label: "Identité", icon: userIdIcon },
+      { label: "ePhoto ANTS", icon: passportIcon },
+      { label: "Conformité", icon: checkCircleIcon },
+    ],
+  },
+  {
+    number: "06",
+    title: "Restaurants & gastronomie",
+    meta: "Image culinaire",
+    text: "Plats, desserts, boissons, gestes en cuisine et ambiance du lieu : des images pensées pour votre carte, votre site et vos réseaux sociaux.",
+    image: "/web/photoo/Mariage%20Ryan%20%26%20Emilia/DSC_4590.jpg",
+    alt: "Création pâtissière photographiée avec soin",
+    position: "object-[center_47%]",
+    steps: [
+      { label: "Plats", icon: plateIcon },
+      { label: "Savoir-faire", icon: chefHatIcon },
+      { label: "Communication", icon: starsIcon },
+    ],
+  },
 ];
 
 export default function PrestationsPageView() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const scrollToIndex = (target: number) => {
-    const clamped = Math.max(0, Math.min(offerings.length - 1, target));
-    const container = scrollRef.current;
-    const slide = container?.children[clamped] as HTMLElement | undefined;
-    slide?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-  };
-
   return (
     <>
+    <section
+      aria-labelledby="prestations-intro-title"
+      className="relative overflow-hidden bg-[#0e1512] pt-32 pb-20 text-white sm:pt-40 sm:pb-24 lg:pb-28"
+    >
       <div
-        aria-hidden={!isLoading}
-        className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0e1512] text-white transition-opacity duration-700 ${
-          isLoading ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <h1
-          className={`${bodoni.className} text-[3rem] leading-none font-medium tracking-[-0.03em] uppercase sm:text-[4.5rem]`}
-        >
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(216,184,132,0.1),transparent_36%)]"
+      />
+
+      <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
+        <p className="text-[10px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase sm:text-[11px]">
           Prestations
+        </p>
+        <h1
+          id="prestations-intro-title"
+          className={`${bodoni.className} mt-5 text-[2.75rem] leading-[0.98] font-medium tracking-[-0.04em] uppercase sm:text-[4rem]`}
+        >
+          Sur mesure, selon votre journée.
         </h1>
-        <p className="absolute bottom-12 text-[10px] font-bold tracking-[0.3em] text-white/55 uppercase sm:bottom-16">
-          Mariage · Célébrations · Engagement · Mode
+        <p className="mt-6 text-sm leading-7 text-white/60 sm:text-base">
+          Mariages, célébrations, portraits officiels, gastronomie, mode et
+          événements : des usages différents, une même exigence.
         </p>
       </div>
 
-    <div
-      ref={scrollRef}
-      role="region"
-      aria-roledescription="carrousel"
-      aria-label="Prestations photographiques"
-      tabIndex={0}
-      onKeyDown={(event) => {
-        if (event.key === "ArrowLeft") {
-          event.preventDefault();
-          scrollToIndex(activeIndex - 1);
-        }
-        if (event.key === "ArrowRight") {
-          event.preventDefault();
-          scrollToIndex(activeIndex + 1);
-        }
-      }}
-      onScroll={(event) => {
-        const container = event.currentTarget;
-        const slideWidth = container.clientWidth || 1;
-        const next = Math.round(container.scrollLeft / slideWidth);
-        if (next !== activeIndex) setActiveIndex(next);
-      }}
-      className="flex h-svh w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden outline-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    >
-      {offerings.map((offering, index) => (
-        <section
-          key={offering.number}
-          aria-hidden={activeIndex !== index}
-          className="relative h-svh w-full shrink-0 snap-start overflow-hidden bg-[#0e1512] text-white"
-        >
-          <Image
-            src={offering.image}
-            alt={offering.alt}
-            fill
-            priority={index === 0}
-            sizes="100vw"
-            className={`object-cover saturate-[0.9] ${offering.position}`}
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(14,21,18,0.96)_0%,rgba(14,21,18,0.82)_35%,rgba(14,21,18,0.4)_60%,rgba(14,21,18,0.1)_78%,rgba(14,21,18,0.55)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,21,18,0.75)_0%,rgba(14,21,18,0.35)_45%,transparent_65%)]" />
+      <div
+        className="relative mt-16 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 sm:mt-20 sm:px-8 lg:mx-auto lg:grid lg:max-w-[1100px] lg:grid-cols-2 lg:gap-x-10 lg:gap-y-14 lg:overflow-visible lg:px-0 lg:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ scrollPaddingLeft: "1.5rem" }}
+      >
+        {offerings.map((offering, index) => {
+          const inRightColumn = index % 2 === 1;
 
-          <span
-            className={`${bodoni.className} pointer-events-none absolute top-24 left-5 text-[6rem] leading-none font-medium text-white/10 sm:top-28 sm:left-8 sm:text-[9rem] lg:left-12 lg:text-[11rem]`}
-          >
-            {offering.number}
-          </span>
-
-          <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-end px-5 pb-16 sm:px-8 sm:pb-20 lg:px-12 lg:pb-24">
-            <p className="text-[10px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase sm:text-[11px]">
-              {offering.meta}
-            </p>
-            <h1
-              className={`${bodoni.className} mt-5 max-w-[14ch] text-[2.75rem] leading-[0.95] font-medium tracking-[-0.04em] uppercase sm:text-[4.5rem] lg:text-[5.5rem]`}
+          return (
+            <article
+              key={offering.number}
+              className={`flex w-[82%] shrink-0 snap-start flex-col sm:w-[45%] lg:w-auto lg:shrink ${inRightColumn ? "lg:mt-16" : ""}`}
             >
-              {offering.title}
-            </h1>
-            <p className="mt-6 max-w-md text-sm leading-7 text-white sm:text-base sm:leading-8">
-              {offering.text}
-            </p>
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/70 shadow-[0_20px_45px_-25px_rgba(0,0,0,0.6)] lg:border-[#d8b884]/40">
+                <Image
+                  src={offering.image}
+                  alt={offering.alt}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className={`object-cover saturate-[0.9] ${offering.position}`}
+                />
+              </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 sm:mt-10">
-              {offering.steps.map((step) => (
-                <span
-                  key={step.label}
-                  className="flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-4 py-2 text-[10px] font-bold tracking-[0.12em] text-white uppercase backdrop-blur-sm"
+              <div className="mt-4 flex flex-1 flex-col">
+                <p className="text-[9px] font-extrabold tracking-[0.3em] text-[#d8b884] uppercase sm:text-[10px]">
+                  {offering.meta}
+                </p>
+                <h2
+                  className={`${bodoni.className} mt-2 text-xl leading-[1.02] font-medium tracking-[-0.03em] uppercase sm:text-2xl`}
                 >
-                  <Icon icon={step.icon} className="size-4 text-[#d8b884]" aria-hidden="true" />
-                  {step.label}
-                </span>
-              ))}
-            </div>
+                  {offering.title}
+                </h2>
+                <p className="mt-3 max-w-sm text-xs leading-6 text-white/70 sm:text-sm sm:leading-7">
+                  {offering.text}
+                </p>
 
-            <Link
-              href="/contact"
-              className="cta-button cta-primary mt-9 inline-flex min-h-14 w-fit items-center gap-8 px-8 text-[9px] font-extrabold tracking-[0.22em] uppercase sm:mt-10"
-            >
-              Réserver votre date
-              <Icon icon={arrowIcon} className="size-4" aria-hidden="true" />
-            </Link>
-          </div>
-        </section>
-      ))}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {offering.steps.map((step) => (
+                    <span
+                      key={step.label}
+                      className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-[9px] font-bold tracking-[0.1em] text-white uppercase"
+                    >
+                      <Icon icon={step.icon} className="size-3.5 text-[#d8b884]" aria-hidden="true" />
+                      {step.label}
+                    </span>
+                  ))}
+                </div>
 
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none fixed inset-x-0 top-24 z-20 flex items-center justify-center gap-2 transition-opacity duration-500 sm:hidden ${
-          activeIndex === 0 ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <span className="flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-3.5 py-1.5 text-[9px] font-bold tracking-[0.14em] text-white uppercase backdrop-blur-sm">
-          Glissez
-          <Icon icon={arrowIcon} className="size-3.5 text-[#d8b884]" aria-hidden="true" />
-          {activeIndex + 1} / {offerings.length}
-        </span>
+                <div className="mt-auto pt-5">
+                  <Link
+                    href="/contact"
+                    className="cta-button cta-primary inline-flex min-h-11 w-fit items-center gap-4 px-6 text-[9px] font-extrabold tracking-[0.2em] uppercase"
+                  >
+                    Découvrir l’offre {offering.title}
+                    <Icon icon={arrowIcon} className="size-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
+    </section>
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-x-0 bottom-5 z-20 flex items-center justify-center gap-2.5 sm:bottom-10 sm:gap-3"
-      >
-        {offerings.map((offering, index) => (
-          <button
-            key={offering.number}
-            type="button"
-            onClick={() => scrollToIndex(index)}
-            aria-label={`Voir ${offering.title}`}
-            aria-current={index === activeIndex ? "true" : undefined}
-            className={`pointer-events-auto h-1.5 rounded-full transition-[width,background-color] duration-300 sm:h-1 ${
-              index === activeIndex ? "w-10 bg-[#d8b884] sm:w-9" : "w-5 bg-white/45 sm:w-4"
-            }`}
-          />
-        ))}
-      </div>
+    <FormulasSection />
 
-      <p
-        aria-hidden="true"
-        className={`pointer-events-none fixed right-5 bottom-8 z-20 hidden items-center gap-3 text-[9px] font-bold tracking-[0.16em] text-white/55 uppercase transition-opacity duration-500 sm:right-8 sm:flex sm:bottom-10 ${
-          activeIndex === 0 ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        Faites glisser
-        <span className="flex size-8 items-center justify-center rounded-full border border-white/30">
-          <Icon icon={arrowIcon} className="size-3.5" aria-hidden="true" />
-        </span>
-      </p>
-    </div>
+    <TravelSection />
     </>
   );
 }

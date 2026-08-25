@@ -3,8 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Icon } from "@iconify/react";
 import arrowRightIcon from "@iconify-icons/solar/arrow-right-linear";
+import chevronLeftIcon from "@iconify-icons/solar/alt-arrow-left-linear";
+import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
+import fullScreenIcon from "@iconify-icons/solar/full-screen-linear";
+import closeIcon from "@iconify-icons/solar/close-circle-linear";
 
 export type PortfolioPhoto = {
   src: string;
@@ -19,6 +24,19 @@ export type PortfolioCategory = {
   description: string;
   photos: PortfolioPhoto[];
 };
+
+const galleryTileLayouts = [
+  "col-span-2 row-span-3 lg:col-span-2",
+  "row-span-3",
+  "row-span-2",
+  "row-span-2",
+  "row-span-3",
+  "col-span-2 row-span-2 lg:col-span-2",
+  "row-span-2",
+  "row-span-3",
+  "row-span-2",
+  "col-span-2 row-span-2 sm:col-span-1 lg:col-span-2",
+] as const;
 
 function getThumbnailIndexes(photoCount: number, activeIndex: number) {
   const visibleCount = Math.min(5, photoCount);
@@ -74,7 +92,7 @@ export default function GalleryPageView({
     const distance = endX - touchStartX.current;
     touchStartX.current = null;
 
-    if (Math.abs(distance) < 50) return;
+    if (Math.abs(distance) < 40) return;
     if (distance > 0) showPrevious();
     if (distance < 0) showNext();
   };
@@ -112,17 +130,20 @@ export default function GalleryPageView({
       className="min-h-svh overflow-hidden bg-[#07100e] text-white"
     >
       <div className="mx-auto max-w-[1440px] px-4 pt-32 pb-20 sm:px-8 sm:pt-40 lg:px-12 lg:pt-44 lg:pb-28">
-        <header className="grid gap-8 border-b border-white/15 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
+        <header className="flex flex-col gap-6 border-b border-white/15 pb-10">
+          <div className="min-w-0">
             <p className="text-[9px] font-bold tracking-[0.25em] text-[#d8b884] uppercase">
               Portfolio
             </p>
-            <h1 className="editorial-title editorial-title-light mt-7 max-w-[11ch] text-[3.5rem] font-black leading-[0.88] tracking-[-0.06em] uppercase sm:text-[6rem] lg:text-[7.5rem]">
+            <h1
+              className="editorial-title editorial-title-light mt-7 text-[1.9rem] font-black leading-[0.88] tracking-[-0.03em] uppercase sm:text-[3.25rem] lg:text-[5rem] xl:text-[7.5rem]"
+              style={{ textWrap: "nowrap" }}
+            >
               Histoires en lumière.
             </h1>
           </div>
-          <div className="max-w-md lg:text-right">
-            <p className="text-sm leading-7 text-white/55">
+          <div className="min-w-0">
+            <p className="text-[10px] leading-5 text-white/55 sm:text-sm sm:leading-7">
               Mariage, mode, portrait, beauté et défilé. Parcourez chaque univers
               et laissez les images raconter leur histoire.
             </p>
@@ -168,7 +189,10 @@ export default function GalleryPageView({
               {activeCategory.title}
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-white/50 sm:text-right">
+          <p
+            className="leading-6 whitespace-nowrap text-white/50 sm:text-sm sm:leading-7 sm:text-right"
+            style={{ fontSize: "clamp(0.34rem, 1.75vw, 0.875rem)" }}
+          >
             {activeCategory.description}
           </p>
         </div>
@@ -186,7 +210,7 @@ export default function GalleryPageView({
             touchStartX.current = event.changedTouches[0].clientX;
           }}
           onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0].clientX)}
-          className="group relative h-[68svh] min-h-[31rem] max-h-[54rem] overflow-hidden border border-white/12 bg-[#030807] outline-none focus-visible:ring-2 focus-visible:ring-[#d8b884]"
+          className="group relative h-[68svh] min-h-[31rem] max-h-[54rem] touch-pan-y overflow-hidden border border-white/12 bg-[#030807] outline-none focus-visible:ring-2 focus-visible:ring-[#d8b884]"
         >
           <div
             className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
@@ -221,26 +245,32 @@ export default function GalleryPageView({
             aria-label="Afficher cette photographie en plein écran"
           >
             Plein écran
-            <span aria-hidden="true" className="text-base leading-none">
-              ↗
-            </span>
+            <Icon icon={fullScreenIcon} className="size-4" aria-hidden="true" />
           </button>
 
           <button
             type="button"
             onClick={showPrevious}
             aria-label="Photographie précédente"
-            className="absolute top-1/2 left-3 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/35 text-lg backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:left-6 sm:size-14"
+            className="group absolute top-1/2 left-3 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/35 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:left-6 sm:size-14"
           >
-            <span aria-hidden="true">←</span>
+            <Icon
+              icon={chevronLeftIcon}
+              className="size-5 shrink-0 transition-transform group-hover:-translate-x-0.5 sm:size-6"
+              aria-hidden="true"
+            />
           </button>
           <button
             type="button"
             onClick={showNext}
             aria-label="Photographie suivante"
-            className="absolute top-1/2 right-3 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/35 text-lg backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:right-6 sm:size-14"
+            className="group absolute top-1/2 right-3 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/35 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:right-6 sm:size-14"
           >
-            <span aria-hidden="true">→</span>
+            <Icon
+              icon={chevronRightIcon}
+              className="size-5 shrink-0 transition-transform group-hover:translate-x-0.5 sm:size-6"
+              aria-hidden="true"
+            />
           </button>
 
           <div className="absolute right-5 bottom-5 left-5 flex items-end justify-between gap-5 border-t border-white/35 pt-4 sm:right-7 sm:bottom-7 sm:left-7">
@@ -288,6 +318,29 @@ export default function GalleryPageView({
           })}
         </div>
 
+        <div className="mt-10 grid auto-rows-[4.5rem] grid-flow-dense grid-cols-2 gap-2 sm:mt-12 sm:auto-rows-[5.5rem] sm:grid-cols-3 sm:gap-3 lg:auto-rows-[6rem] lg:grid-cols-4 xl:auto-rows-[6.5rem] xl:grid-cols-5">
+          {activeCategory.photos.map((photo, index) => (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => {
+                setActivePhotoIndex(index);
+                setIsLightboxOpen(true);
+              }}
+              aria-label={`Afficher la photographie ${index + 1} : ${photo.project}`}
+              className={`group/grid relative min-h-0 overflow-hidden border border-white/12 bg-white/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] hover:border-[#d8b884]/60 ${galleryTileLayouts[index % galleryTileLayouts.length]}`}
+            >
+              <Image
+                src={photo.src}
+                alt=""
+                fill
+                sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover/grid:scale-105"
+              />
+            </button>
+          ))}
+        </div>
+
         <div className="mt-12 flex flex-col items-center justify-between gap-7 border-t border-white/15 pt-9 text-center sm:flex-row sm:text-left">
           <p className="max-w-xl text-sm leading-7 text-white/52">
             Une image vous ressemble ? Parlons de la lumière, du lieu et du
@@ -303,57 +356,68 @@ export default function GalleryPageView({
         </div>
       </div>
 
-      {isLightboxOpen ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Photographie en plein écran de la catégorie ${activeCategory.title}`}
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-[#020706]/96 p-4 backdrop-blur-md sm:p-10"
-          onTouchStart={(event) => {
-            touchStartX.current = event.changedTouches[0].clientX;
-          }}
-          onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0].clientX)}
-        >
-          <button
-            type="button"
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-5 right-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/30 bg-black/30 text-xl backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884]"
-            aria-label="Fermer le plein écran"
-          >
-            ×
-          </button>
-          <button
-            type="button"
-            onClick={showPrevious}
-            className="absolute bottom-5 left-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/30 bg-black/30 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2"
-            aria-label="Photographie précédente"
-          >
-            ←
-          </button>
-          <figure className="relative h-[82svh] w-full max-w-6xl overflow-hidden">
-            <Image
-              key={activePhoto.src}
-              src={activePhoto.src}
-              alt={activePhoto.alt}
-              fill
-              sizes="100vw"
-              className="object-contain"
-            />
-            <figcaption className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/85 to-transparent px-16 pt-16 pb-5 text-center text-[9px] font-bold tracking-[0.2em] uppercase">
-              {activePhoto.project} · {activePhotoIndex + 1} / {" "}
-              {activeCategory.photos.length}
-            </figcaption>
-          </figure>
-          <button
-            type="button"
-            onClick={showNext}
-            className="absolute right-5 bottom-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/30 bg-black/30 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2"
-            aria-label="Photographie suivante"
-          >
-            →
-          </button>
-        </div>
-      ) : null}
+      {isLightboxOpen && typeof document !== "undefined"
+        ? createPortal(
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Photographie en plein écran de la catégorie ${activeCategory.title}`}
+              className="fixed inset-0 z-[200] flex touch-pan-y items-center justify-center bg-[#020706]/96 p-4 backdrop-blur-md sm:p-10"
+              onTouchStart={(event) => {
+                touchStartX.current = event.changedTouches[0].clientX;
+              }}
+              onTouchEnd={(event) => handleTouchEnd(event.changedTouches[0].clientX)}
+            >
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                className="absolute top-5 right-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/40 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-[#d8b884] hover:bg-black/80 hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884]"
+                aria-label="Fermer le plein écran"
+              >
+                <Icon icon={closeIcon} className="size-6" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={showPrevious}
+                className="group absolute bottom-5 left-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/30 bg-black/30 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2"
+                aria-label="Photographie précédente"
+              >
+                <Icon
+                  icon={chevronLeftIcon}
+                  className="size-5 shrink-0 transition-transform group-hover:-translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </button>
+              <figure className="relative h-[82svh] w-full max-w-6xl overflow-hidden">
+                <Image
+                  key={activePhoto.src}
+                  src={activePhoto.src}
+                  alt={activePhoto.alt}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                />
+                <figcaption className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/85 to-transparent px-16 pt-16 pb-5 text-center text-[9px] font-bold tracking-[0.2em] uppercase">
+                  {activePhoto.project} · {activePhotoIndex + 1} / {" "}
+                  {activeCategory.photos.length}
+                </figcaption>
+              </figure>
+              <button
+                type="button"
+                onClick={showNext}
+                className="group absolute right-5 bottom-5 z-10 flex size-12 items-center justify-center rounded-full border border-white/30 bg-black/30 backdrop-blur-md transition-colors hover:border-[#d8b884] hover:text-[#d8b884] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8b884] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2"
+                aria-label="Photographie suivante"
+              >
+                <Icon
+                  icon={chevronRightIcon}
+                  className="size-5 shrink-0 transition-transform group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>,
+            document.body,
+          )
+        : null}
     </section>
   );
 }

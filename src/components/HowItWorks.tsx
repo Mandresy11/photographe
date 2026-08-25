@@ -118,11 +118,16 @@ export default function HowItWorks() {
             );
 
             const title = (
-              <p
-                className={`${bodoni.className} text-lg leading-snug font-medium whitespace-nowrap text-white sm:text-xl`}
-              >
-                {step.title}
-              </p>
+              <div className={imageOnRight ? "sm:text-right" : ""}>
+                <p
+                  className={`${bodoni.className} text-lg leading-snug font-medium whitespace-nowrap text-white sm:text-xl`}
+                >
+                  {step.title}
+                </p>
+                <p className="mt-2 hidden max-w-xs text-sm leading-6 text-white/60 sm:block">
+                  {step.text}
+                </p>
+              </div>
             );
 
             return (
@@ -185,7 +190,7 @@ export default function HowItWorks() {
 
         <Link
           href="/contact"
-          className="cta-button cta-ghost-light mx-auto mt-14 inline-flex min-h-[3.25rem] w-fit items-center gap-16 border-[#d8b884]/75 px-8 text-[9px] font-extrabold tracking-[0.24em] uppercase sm:mt-20"
+          className="cta-button cta-ghost-light mx-auto mt-14 inline-flex min-h-[3.25rem] w-fit items-center gap-3 border-[#d8b884]/75 px-8 text-[9px] font-extrabold tracking-[0.24em] uppercase sm:mt-20"
         >
           Parlons
           <Icon icon={arrowIcon} className="size-4" aria-hidden="true" />

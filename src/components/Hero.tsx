@@ -67,8 +67,6 @@ export default function Hero() {
       ))}
 
       <div className="absolute inset-0 bg-[#07100f]/20" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_42%,rgba(197,119,62,0.26)_0%,rgba(95,53,30,0.1)_24%,transparent_48%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(5,23,34,0.32)_0%,rgba(4,12,16,0.06)_50%,rgba(138,67,25,0.3)_100%)] mix-blend-color" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,6,0.72)_0%,rgba(2,6,6,0.08)_29%,rgba(2,6,6,0.04)_55%,rgba(2,6,6,0.88)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_32%,rgba(0,0,0,0.44)_100%)]" />
 
@@ -76,7 +74,7 @@ export default function Hero() {
         <div className="flex flex-1 flex-col items-center justify-center pt-8 pb-10 sm:pt-10 sm:pb-14 lg:pt-40 lg:pb-4">
           <h1
             id="hero-title"
-            className="w-full min-w-0 text-center uppercase text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.38)]"
+            className="w-full min-w-0 text-center uppercase text-white drop-shadow-[0_6px_18px_rgba(0,0,0,0.24)]"
           >
             <span className="mb-2 block text-[8px] leading-5 font-extrabold tracking-[0.42em] sm:mb-4 sm:text-[11px] sm:tracking-[0.64em] lg:text-xs">
               Des instants qui durent

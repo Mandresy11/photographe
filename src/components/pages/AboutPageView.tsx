@@ -13,9 +13,9 @@ const bodoni = Bodoni_Moda({
 const milestones = [
   {
     year: "2007",
-    place: "Paris",
-    title: "Apprendre la rigueur",
-    text: "Le spectacle, la mode et les nuits parisiennes forgent le regard et le sens du rythme.",
+    place: "Paris & la Seine",
+    title: "Apprendre sur le vif",
+    text: "Des bateaux parisiens au pied de la tour Eiffel aux nuits du Lido avec Photo du Monde, Patrice apprend à saisir vite et juste.",
     image:
       "/web/photoo/DEFILE%20GUERLAIN%202020%20PFW/22012020-DEFILE%20PARIS%20FASHION%20WEEK%20GUERLAIN%202021%20030.jpg",
     alt: "Défilé de mode dans un décor parisien",
@@ -24,9 +24,9 @@ const milestones = [
   },
   {
     year: "Puis",
-    place: "Le mouvement",
-    title: "Chercher le vrai",
-    text: "Moins de poses, plus de présence. La technique s’efface pour laisser vivre les personnes.",
+    place: "Mariage & mode",
+    title: "Affirmer une écriture",
+    text: "Chez Elle et Lui Photographie, le mariage devient une passion. Fashion Weeks, maisons Alexandro Fratelli et Keti Chkhikvadze, puis Polaroid affinent son regard éditorial.",
     image:
       "/web/photoo/DEFILE%20GUERLAIN%202020%20PFW/22012020-DEFILE%20PARIS%20FASHION%20WEEK%20GUERLAIN%202021%20108.jpg",
     alt: "Silhouette en mouvement pendant un défilé",
@@ -37,7 +37,7 @@ const milestones = [
     year: "Aujourd’hui",
     place: "Guadeloupe",
     title: "Raconter les liens",
-    text: "La lumière des Antilles rencontre une écriture éditoriale, sensible et profondément humaine.",
+    text: "Dans son propre studio, la lumière des Antilles rencontre une écriture spontanée, contrastée, élégante et profondément humaine.",
     image:
       "/web/photoo/Mariage%20Christophe%20%26%20Sandra/07052022-DSC_6464.jpg",
     alt: "Mariés face à la mer en Guadeloupe",

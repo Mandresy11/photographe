@@ -13,7 +13,9 @@ import mapPointIcon from "@iconify-icons/solar/map-point-linear";
 import clockIcon from "@iconify-icons/solar/clock-circle-linear";
 import userIcon from "@iconify-icons/solar/user-linear";
 import lockIcon from "@iconify-icons/solar/lock-linear";
-import arrowIcon from "@iconify-icons/solar/arrow-right-linear";
+import chatIcon from "@iconify-icons/solar/chat-round-dots-linear";
+import searchIcon from "@iconify-icons/solar/magnifer-linear";
+import passportIcon from "@iconify-icons/solar/passport-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -26,6 +28,7 @@ const categories = [
   { label: "Le jour J", icon: calendarIcon },
   { label: "Les images", icon: galleryIcon },
   { label: "Le premier contact", icon: letterIcon },
+  { label: "Autres services", icon: passportIcon },
 ];
 
 const questions = [
@@ -33,7 +36,7 @@ const questions = [
     category: "Le style",
     question: "Comment décririez-vous votre manière de photographier ?",
     answer:
-      "Une écriture éditoriale, naturelle et contrastée. Je privilégie les gestes vrais et une direction légère lorsque vous en avez besoin.",
+      "Une écriture inspirée de l’éditorial de mode, spontanée et contrastée, avec un jeu subtil de lumière. Je crée une ambiance détendue et vous guide avec légèreté lorsque vous en avez besoin.",
   },
   {
     category: "Le style",
@@ -119,6 +122,18 @@ const questions = [
     answer:
       "Oui, un acompte confirme la réservation de votre date. Le solde est réglé après la prestation, selon les modalités du contrat.",
   },
+  {
+    category: "Autres services",
+    question: "Réalisez-vous les photos d’identité et ePhotos ANTS ?",
+    answer:
+      "Oui. Les photos d’identité sont réalisées dans le respect des normes officielles pour cartes d’identité et passeports. Référencé dans l’annuaire officiel France Titres comme photographe « Agréé services en ligne ANTS », je réalise aussi la photo-signature numérique ePhoto destinée notamment aux démarches de permis de conduire.",
+  },
+  {
+    category: "Autres services",
+    question: "Proposez-vous des photographies pour les restaurants ?",
+    answer:
+      "Oui. Plats, desserts, boissons, menus, gestes en cuisine et ambiance du lieu : chaque série est pensée pour votre carte, votre site, vos plateformes de livraison et vos réseaux sociaux.",
+  },
 ];
 
 const highlights = [
@@ -148,12 +163,30 @@ function categoryIcon(category: string) {
   return categories.find((item) => item.label === category)?.icon ?? penIcon;
 }
 
+function normalizeSearch(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("fr");
+}
+
 export default function QuestionsPageView() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const visibleQuestions = activeCategory
-    ? questions.filter((item) => item.category === activeCategory)
-    : questions;
+  const normalizedSearchQuery = normalizeSearch(searchQuery.trim());
+  const visibleQuestions = questions.filter((item) => {
+    const matchesCategory =
+      activeCategory === null || item.category === activeCategory;
+    const searchableContent = normalizeSearch(
+      `${item.category} ${item.question} ${item.answer}`,
+    );
+    const matchesSearch =
+      normalizedSearchQuery.length === 0 ||
+      searchableContent.includes(normalizedSearchQuery);
+
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <section
@@ -173,7 +206,35 @@ export default function QuestionsPageView() {
           </p>
         </header>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3 sm:mt-12">
+        <div
+          role="search"
+          className="relative mx-auto mt-10 max-w-2xl sm:mt-12"
+        >
+          <Icon
+            icon={searchIcon}
+            className="pointer-events-none absolute top-1/2 left-5 size-5 -translate-y-1/2 text-[#9a713a]"
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder="Écrivez votre question ou un mot-clé…"
+            aria-label="Rechercher dans les questions fréquentes"
+            className="min-h-16 w-full rounded-full border border-[#13201e]/12 bg-white py-4 pr-24 pl-14 text-sm text-[#13201e] shadow-[0_12px_34px_rgba(20,32,30,0.06)] outline-none transition placeholder:text-[#13201e]/38 focus:border-[#b68e54]/70 focus:ring-4 focus:ring-[#b68e54]/10 [&::-webkit-search-cancel-button]:appearance-none"
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              className="absolute top-1/2 right-5 -translate-y-1/2 text-[9px] font-bold tracking-[0.14em] text-[#9a713a] uppercase transition-colors hover:text-[#13201e]"
+            >
+              Effacer
+            </button>
+          )}
+        </div>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-7">
           <button
             type="button"
             onClick={() => setActiveCategory(null)}
@@ -210,43 +271,80 @@ export default function QuestionsPageView() {
           ))}
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-[1.5rem] border border-[#13201e]/8 bg-white sm:mt-12">
-          {visibleQuestions.map((item, index) => (
-            <details
-              key={item.question}
-              className={`group px-6 sm:px-9 ${
-                index !== 0 ? "border-t border-[#13201e]/8" : ""
-              }`}
-            >
-              <summary className="grid cursor-pointer list-none grid-cols-[2.25rem_1fr] items-center gap-4 py-6 [&::-webkit-details-marker]:hidden sm:grid-cols-[auto_1fr_2.25rem] sm:gap-6 sm:py-7">
-                <span className="hidden items-center gap-2 text-[10px] font-bold tracking-[0.14em] text-[#9a713a] uppercase sm:col-start-1 sm:row-start-1 sm:flex">
-                  <Icon
-                    icon={categoryIcon(item.category)}
-                    className="size-4"
+        <p
+          className="mt-8 text-center text-[10px] font-bold tracking-[0.12em] text-[#13201e]/45 uppercase"
+          aria-live="polite"
+        >
+          {visibleQuestions.length} question
+          {visibleQuestions.length !== 1 ? "s" : ""} trouvée
+          {visibleQuestions.length !== 1 ? "s" : ""}
+        </p>
+
+        {visibleQuestions.length > 0 ? (
+          <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-[#13201e]/8 bg-white sm:mt-5">
+            {visibleQuestions.map((item, index) => (
+              <details
+                key={item.question}
+                className={`group px-6 sm:px-9 ${
+                  index !== 0 ? "border-t border-[#13201e]/8" : ""
+                }`}
+              >
+                <summary className="grid cursor-pointer list-none grid-cols-[2.25rem_1fr] items-center gap-4 py-6 [&::-webkit-details-marker]:hidden sm:grid-cols-[auto_1fr_2.25rem] sm:gap-6 sm:py-7">
+                  <span className="hidden items-center gap-2 text-[10px] font-bold tracking-[0.14em] text-[#9a713a] uppercase sm:col-start-1 sm:row-start-1 sm:flex">
+                    <Icon
+                      icon={categoryIcon(item.category)}
+                      className="size-4"
+                      aria-hidden="true"
+                    />
+                    <span className="whitespace-nowrap">{item.category}</span>
+                    <span className="ml-2 h-4 w-px bg-[#13201e]/12" />
+                  </span>
+
+                  <span className="col-start-2 row-start-1 text-sm font-bold tracking-[-0.01em] text-[#13201e] sm:text-lg">
+                    {item.question}
+                  </span>
+
+                  <span
                     aria-hidden="true"
-                  />
-                  <span className="whitespace-nowrap">{item.category}</span>
-                  <span className="ml-2 h-4 w-px bg-[#13201e]/12" />
-                </span>
-
-                <span className="col-start-2 row-start-1 text-sm font-bold tracking-[-0.01em] text-[#13201e] sm:text-lg">
-                  {item.question}
-                </span>
-
-                <span
-                  aria-hidden="true"
-                  className="col-start-1 row-start-1 flex size-9 items-center justify-center justify-self-start rounded-full border border-[#13201e]/15 text-lg text-[#9a713a] transition-colors group-open:bg-[#13201e] group-open:text-white sm:col-start-3 sm:justify-self-end"
-                >
-                  <span className="group-open:hidden">+</span>
-                  <span className="hidden group-open:inline">−</span>
-                </span>
-              </summary>
-              <p className="max-w-2xl pb-7 pl-[3.25rem] text-sm leading-7 text-[#13201e]/60 sm:pl-[9.5rem]">
-                {item.answer}
-              </p>
-            </details>
-          ))}
-        </div>
+                    className="col-start-1 row-start-1 flex size-9 items-center justify-center justify-self-start rounded-full border border-[#13201e]/15 text-lg text-[#9a713a] transition-colors group-open:bg-[#13201e] group-open:text-white sm:col-start-3 sm:justify-self-end"
+                  >
+                    <span className="group-open:hidden">+</span>
+                    <span className="hidden group-open:inline">−</span>
+                  </span>
+                </summary>
+                <p className="max-w-2xl pb-7 pl-[3.25rem] text-sm leading-7 text-[#13201e]/60 sm:pl-[9.5rem]">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        ) : (
+          <div
+            role="status"
+            className="mt-4 flex min-h-64 flex-col items-center justify-center rounded-[1.5rem] border border-[#13201e]/8 bg-white px-6 text-center sm:mt-5"
+          >
+            <span className="flex size-14 items-center justify-center rounded-full bg-[#efe6d6] text-[#9a713a]">
+              <Icon icon={searchIcon} className="size-6" aria-hidden="true" />
+            </span>
+            <p className="mt-5 text-base font-bold text-[#13201e]">
+              Aucune question trouvée
+            </p>
+            <p className="mt-2 max-w-sm text-sm leading-6 text-[#13201e]/55">
+              Essayez un autre mot-clé ou affichez à nouveau toutes les
+              questions.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setActiveCategory(null);
+              }}
+              className="mt-5 text-[9px] font-bold tracking-[0.16em] text-[#9a713a] uppercase underline decoration-[#b68e54]/40 underline-offset-4 transition-colors hover:text-[#13201e]"
+            >
+              Afficher toutes les questions
+            </button>
+          </div>
+        )}
 
         <div className="mt-10 grid grid-cols-1 gap-6 rounded-[1.5rem] bg-[#efe6d6]/60 p-7 sm:mt-12 sm:grid-cols-2 sm:p-9 lg:grid-cols-4">
           {highlights.map((highlight) => (
@@ -276,7 +374,7 @@ export default function QuestionsPageView() {
             className="cta-button cta-dark inline-flex min-h-14 w-fit items-center gap-8 bg-[#13201e] px-9 text-[9px] font-extrabold tracking-[0.2em] text-white uppercase shadow-[0_12px_30px_rgba(20,32,30,0.18)] transition-colors hover:bg-[#25332f]"
           >
             Poser ma question
-            <Icon icon={arrowIcon} className="size-4" aria-hidden="true" />
+            <Icon icon={chatIcon} className="size-4" aria-hidden="true" />
           </Link>
         </div>
       </div>

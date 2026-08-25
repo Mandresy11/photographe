@@ -7,6 +7,8 @@ import { Icon } from "@iconify/react";
 import clockIcon from "@iconify-icons/solar/clock-circle-linear";
 import cameraIcon from "@iconify-icons/solar/camera-linear";
 import heartIcon from "@iconify-icons/solar/heart-linear";
+import chevronLeftIcon from "@iconify-icons/solar/alt-arrow-left-linear";
+import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -156,74 +158,44 @@ export default function Testimonials({
                   </div>
                 </div>
 
-                <div className="mt-8 hidden items-center gap-3 lg:flex lg:mt-[clamp(0.75rem,calc(8svh-2.85rem),2.75rem)]">
+                <div className="mt-8 hidden items-center gap-3 lg:flex lg:mt-[clamp(0.75rem,calc(7svh-2.25rem),2.75rem)]">
                   <button
                     type="button"
                     onClick={showPrevious}
                     aria-label="Afficher l’avis précédent"
-                    className="group flex size-11 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8f6936] sm:size-13 lg:size-[clamp(2.75rem,5.8svh,4rem)]"
+                    className="group flex size-11 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8f6936] sm:size-13 lg:size-[clamp(2.75rem,5.8svh,4rem)]"
                   >
-                    <span
+                    <Icon
+                      icon={chevronLeftIcon}
+                      className="size-4 transition-transform group-hover:-translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none lg:size-5"
                       aria-hidden="true"
-                      className="transition-transform group-hover:-translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-                    >
-                      ←
-                    </span>
+                    />
                   </button>
+
+                  <span
+                    className="cta-button cta-dark relative flex min-h-14 flex-1 items-center justify-center gap-2 rounded-[1.25rem] px-6 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:h-[clamp(3.5rem,7svh,4.75rem)] lg:text-[11px]"
+                  >
+                    <span className="flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-black tracking-normal text-[#4285f4] shadow-sm">
+                      G
+                    </span>
+                    Avis Google
+                  </span>
+
                   <button
                     type="button"
                     onClick={showNext}
                     aria-label="Afficher l’avis suivant"
-                    className="group flex size-11 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8f6936] sm:size-13 lg:size-[clamp(2.75rem,5.8svh,4rem)]"
+                    className="group flex size-11 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8f6936] sm:size-13 lg:size-[clamp(2.75rem,5.8svh,4rem)]"
                   >
-                    <span
+                    <Icon
+                      icon={chevronRightIcon}
+                      className="size-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none lg:size-5"
                       aria-hidden="true"
-                      className="transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-                    >
-                      →
-                    </span>
+                    />
                   </button>
                 </div>
-
-                <span
-                  className="cta-button cta-dark relative mt-8 hidden min-h-14 w-full items-center justify-center gap-2 rounded-[1.25rem] px-14 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:flex lg:mt-[clamp(0.75rem,calc(7svh-2.25rem),2.75rem)] lg:h-[clamp(3.5rem,7svh,4.75rem)] lg:text-[11px]"
-                >
-                  <span className="flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-black tracking-normal text-[#4285f4] shadow-sm">
-                    G
-                  </span>
-                  Avis Google
-                </span>
               </div>
             </article>
-            </div>
-
-            <div className="relative z-10 mt-4 flex items-center justify-center gap-3 lg:hidden">
-              <button
-                type="button"
-                onClick={showPrevious}
-                aria-label="Afficher l’avis précédent"
-                className="group flex size-10 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white"
-              >
-                <span
-                  aria-hidden="true"
-                  className="transition-transform group-hover:-translate-x-0.5"
-                >
-                  ←
-                </span>
-              </button>
-              <button
-                type="button"
-                onClick={showNext}
-                aria-label="Afficher l’avis suivant"
-                className="group flex size-10 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white"
-              >
-                <span
-                  aria-hidden="true"
-                  className="transition-transform group-hover:translate-x-0.5"
-                >
-                  →
-                </span>
-              </button>
             </div>
 
             <div className="relative z-10 mx-3 mt-5 grid grid-cols-3 gap-2 lg:hidden">
@@ -253,14 +225,42 @@ export default function Testimonials({
               </div>
             </div>
 
-            <span
-              className="cta-button cta-dark relative z-10 mx-3 mt-4 flex min-h-14 items-center justify-center gap-2 rounded-[1.25rem] px-14 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16 lg:hidden"
-            >
-              <span className="flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-black tracking-normal text-[#4285f4] shadow-sm">
-                G
+            <div className="relative z-10 mx-3 mt-4 flex items-center gap-3 lg:hidden">
+              <button
+                type="button"
+                onClick={showPrevious}
+                aria-label="Afficher l’avis précédent"
+                className="group flex size-14 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white sm:size-16"
+              >
+                <Icon
+                  icon={chevronLeftIcon}
+                  className="size-5 transition-transform group-hover:-translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </button>
+
+              <span
+                className="cta-button cta-dark flex min-h-14 flex-1 items-center justify-center gap-2 rounded-[1.25rem] px-6 text-center text-[10px] font-extrabold tracking-[0.22em] text-[#e7c382] uppercase sm:min-h-16"
+              >
+                <span className="flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-black tracking-normal text-[#4285f4] shadow-sm">
+                  G
+                </span>
+                Avis Google
               </span>
-              Avis Google
-            </span>
+
+              <button
+                type="button"
+                onClick={showNext}
+                aria-label="Afficher l’avis suivant"
+                className="group flex size-14 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 bg-[#fcfaf5] transition-[border-color,background-color,color] hover:border-[#14201e] hover:bg-[#14201e] hover:text-white sm:size-16"
+              >
+                <Icon
+                  icon={chevronRightIcon}
+                  className="size-5 transition-transform group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
           </div>
 
           <figure className="relative hidden min-h-[24rem] overflow-hidden rounded-[1.8rem] bg-[#d7d0c5] shadow-[0_24px_48px_rgba(56,45,28,0.12)] sm:min-h-[32rem] lg:block lg:h-full lg:min-h-0 lg:rounded-[1.5rem]">

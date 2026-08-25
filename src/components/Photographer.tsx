@@ -6,8 +6,6 @@ import bookIcon from "@iconify-icons/solar/book-linear";
 import chatRoundLineIcon from "@iconify-icons/solar/chat-round-line-linear";
 import compassIcon from "@iconify-icons/solar/compass-linear";
 
-const filmSettings = ["ISO 200", "f/2.0", "1/125", "400"];
-
 const stats = [
   {
     label: "Basé en",
@@ -26,7 +24,7 @@ const stats = [
   },
   {
     label: "Réponse",
-    value: "rapide",
+    value: "24–48 h",
     icon: chatRoundLineIcon,
   },
 ];
@@ -58,17 +56,6 @@ function PortraitCard() {
         </div>
       </figure>
 
-      <div className="absolute top-1/2 -left-14 hidden -translate-y-1/2 flex-col items-center gap-9 sm:flex">
-        {filmSettings.map((setting) => (
-          <span
-            key={setting}
-            className="origin-center -rotate-90 text-[8px] font-bold tracking-[0.18em] whitespace-nowrap text-[#14201e]/55 uppercase"
-          >
-            {setting}
-          </span>
-        ))}
-      </div>
-
       <span
         aria-hidden="true"
         className="absolute -bottom-5 -left-5 flex size-12 items-center justify-center rounded-full border border-[#b68e54]/65 bg-[#f3f0e9] text-[#b68e54] sm:-bottom-7 sm:-left-7 sm:size-16"
@@ -89,13 +76,6 @@ export default function Photographer() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_43%,rgba(255,255,255,0.8),transparent_31%),radial-gradient(circle_at_74%_51%,rgba(216,184,132,0.09),transparent_38%)]"
       />
-
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -right-24 text-[18rem] font-black leading-none tracking-[-0.09em] text-[#14201e]/[0.025] sm:text-[25rem] lg:-top-24 lg:text-[30rem]"
-      >
-        06
-      </span>
 
       <div className="relative mx-auto h-full max-w-[1510px] px-5 pt-24 pb-6 sm:px-8 sm:pt-28 sm:pb-10 lg:w-[84vw] lg:max-w-[1414px] lg:px-0 lg:py-10">
         <div className="grid h-full gap-6 sm:gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
@@ -127,7 +107,7 @@ export default function Photographer() {
                 </p>
               </blockquote>
               <p className="mt-5 hidden text-sm text-[#14201e]/62 sm:block sm:text-lg">
-                Un style éditorial, naturel et discret.
+                Un style éditorial, spontané, contrasté et lumineux.
               </p>
             </div>
 

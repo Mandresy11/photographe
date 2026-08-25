@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import compassIcon from "@iconify-icons/solar/compass-linear";
+import chevronLeftIcon from "@iconify-icons/solar/alt-arrow-left-linear";
+import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
 
 const principles = [
   {
@@ -199,9 +201,9 @@ export default function Difference() {
                 type="button"
                 onClick={showPrevious}
                 aria-label="Carte précédente"
-                className="flex size-11 items-center justify-center rounded-full border border-[#14201e]/30 text-lg transition-colors hover:border-[#b68e54] hover:text-[#b68e54]"
+                className="flex size-11 items-center justify-center rounded-full border border-[#14201e]/30 transition-colors hover:border-[#b68e54] hover:text-[#b68e54]"
               >
-                <span aria-hidden="true">←</span>
+                <Icon icon={chevronLeftIcon} className="size-4" aria-hidden="true" />
               </button>
 
               <div
@@ -228,9 +230,9 @@ export default function Difference() {
                 type="button"
                 onClick={showNext}
                 aria-label="Carte suivante"
-                className="flex size-11 items-center justify-center rounded-full border border-[#14201e]/30 text-lg transition-colors hover:border-[#b68e54] hover:text-[#b68e54]"
+                className="flex size-11 items-center justify-center rounded-full border border-[#14201e]/30 transition-colors hover:border-[#b68e54] hover:text-[#b68e54]"
               >
-                <span aria-hidden="true">→</span>
+                <Icon icon={chevronRightIcon} className="size-4" aria-hidden="true" />
               </button>
             </div>
           </div>

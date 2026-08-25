@@ -84,39 +84,27 @@ export default function BookingProcess() {
             parcours clair et sans surprise.
           </p>
 
-          <div className="relative mt-10 xl:mt-11 2xl:mt-12 2xl:-ml-5">
-            <span
-              aria-hidden="true"
-              className="absolute top-8 bottom-8 left-8 w-px bg-[#d8b884]/35 xl:top-[-3.3rem] xl:right-auto xl:bottom-8 xl:left-[-1.6rem] 2xl:bottom-6 2xl:left-[-2.3rem]"
-            >
-              <span className="absolute top-0 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#dfbd7c]" />
-              <span className="absolute bottom-0 left-1/2 size-2 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#dfbd7c]" />
-            </span>
-
+          <div className="relative mt-10 xl:mt-11 2xl:mt-12">
             <ol className="relative flex flex-col">
               {bookingSteps.map((step) => (
                 <li
                   key={step.number}
-                  className="relative grid min-h-[8.75rem] grid-cols-[4rem_2rem_minmax(0,1fr)] gap-x-4 sm:grid-cols-[4.5rem_2.5rem_minmax(0,1fr)] sm:gap-x-5 xl:min-h-[8.75rem] xl:grid-cols-[4.75rem_2.5rem_minmax(0,1fr)] xl:gap-x-6 2xl:min-h-36 2xl:grid-cols-[5.5rem_3rem_minmax(0,1fr)] 2xl:gap-x-[2.125rem]"
+                  className="relative grid min-h-[6.5rem] grid-cols-[0.5rem_2.5rem_minmax(0,1fr)] items-center gap-x-4 sm:gap-x-5 xl:min-h-[6.5rem] xl:gap-x-6 2xl:min-h-28"
                 >
                   <span
                     aria-hidden="true"
-                    className="absolute top-8 left-8 z-10 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#dfbd7c] xl:top-[2.4rem] xl:left-[-1.6rem] 2xl:top-[2.75rem] 2xl:left-[-2.3rem]"
+                    className="size-2 shrink-0 rounded-full bg-[#dfbd7c]"
                   />
 
-                  <span
-                    className={`${bodoni.className} relative z-10 flex size-16 shrink-0 items-center justify-center rounded-full border border-[#d8b884]/35 bg-[radial-gradient(circle_at_35%_28%,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] text-[1.8rem] leading-none text-[#d8b884] sm:size-[4.5rem] sm:text-[2rem] xl:size-[4.75rem] xl:text-[2.25rem] 2xl:size-[5.5rem] 2xl:text-[2.8rem]`}
-                  >
-                    {step.number}
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#d8b884]/35 bg-[radial-gradient(circle_at_35%_28%,rgba(255,255,255,0.06),rgba(255,255,255,0.015))] sm:size-12">
+                    <Icon
+                      icon={step.icon}
+                      className="size-5 shrink-0 text-[#d7ae69] sm:size-6"
+                      aria-hidden="true"
+                    />
                   </span>
 
-                  <Icon
-                    icon={step.icon}
-                    className="mt-4 size-8 shrink-0 text-[#d7ae69] sm:mt-4 sm:size-10 xl:mt-5 xl:size-10 2xl:mt-6 2xl:size-12"
-                    aria-hidden="true"
-                  />
-
-                  <div className="relative min-w-0 pt-2.5 sm:pt-3 xl:pt-3.5 2xl:pt-4">
+                  <div className="relative min-w-0">
                     <h3
                       className={`${bodoni.className} text-lg leading-tight font-medium text-[#f2eee8] sm:text-xl 2xl:text-[1.45rem]`}
                     >

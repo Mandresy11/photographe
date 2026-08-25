@@ -5,11 +5,12 @@ import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
 import { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import compassIcon from "@iconify-icons/solar/compass-linear";
 import bouquetIcon from "@iconify-icons/solar/leaf-linear";
 import champagneIcon from "@iconify-icons/solar/wineglass-linear";
 import ringIcon from "@iconify-icons/solar/heart-linear";
 import sparklesIcon from "@iconify-icons/solar/stars-linear";
+import passportIcon from "@iconify-icons/solar/passport-linear";
+import chefHatIcon from "@iconify-icons/solar/chef-hat-linear";
 import arrowIcon from "@iconify-icons/solar/arrow-right-linear";
 import chevronLeftIcon from "@iconify-icons/solar/alt-arrow-left-linear";
 import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
@@ -64,6 +65,28 @@ const offerings = [
       "/web/photoo/DEFILE%20GUERLAIN%202020%20PFW/22012020-DEFILE%20PARIS%20FASHION%20WEEK%20GUERLAIN%202021%20108.jpg",
     alt: "Robe présentée lors d’un défilé parisien",
     position: "center 32%",
+  },
+  {
+    number: "05",
+    title: "Identité & ePhoto",
+    subtitle: "CNI, passeport, permis de conduire",
+    detail:
+      "Photos d’identité conformes et photo-signature numérique par un photographe agréé ANTS.",
+    emoji: passportIcon,
+    image: "/web/photoo/04122025-_DSC0025.jpg",
+    alt: "Patrice Wilfrid dans son studio photographique",
+    position: "center 28%",
+  },
+  {
+    number: "06",
+    title: "Restaurants & gastronomie",
+    subtitle: "Plats, menus, ambiance et savoir-faire",
+    detail:
+      "Des images gourmandes et soignées pour votre carte, votre site et vos réseaux sociaux.",
+    emoji: chefHatIcon,
+    image: "/web/photoo/Mariage%20Ryan%20%26%20Emilia/DSC_4590.jpg",
+    alt: "Création pâtissière photographiée avec soin",
+    position: "center 47%",
   },
 ];
 
@@ -158,8 +181,8 @@ export default function Prestations() {
                   onClick={() => scrollToIndex(i)}
                   aria-label={`Voir ${offering.title}`}
                   aria-current={i === index ? "true" : undefined}
-                  className={`h-0.5 rounded-full transition-[width,background-color] ${
-                    i === index ? "w-8 bg-[#b68e54]" : "w-3 bg-[#14201e]/15"
+                  className={`size-2 rounded-full transition-colors ${
+                    i === index ? "bg-[#b68e54]" : "bg-[#14201e]/15"
                   }`}
                 />
               ))}
@@ -215,11 +238,11 @@ export default function Prestations() {
                   <Icon
                     icon={offering.emoji}
                     aria-hidden="true"
-                    className="size-10 self-end text-[#b68e54]"
+                    className="absolute top-6 right-6 size-14 text-[#b68e54]"
                   />
 
                   <h3
-                    className={`${bodoni.className} mt-3 max-w-[11ch] text-2xl leading-[1.05] font-medium tracking-[-0.03em]`}
+                    className={`${bodoni.className} mt-[1.4rem] max-w-[11ch] text-2xl leading-[1.05] font-medium tracking-[-0.03em]`}
                   >
                     {offering.title}
                   </h3>
@@ -262,8 +285,8 @@ export default function Prestations() {
                   onClick={() => scrollToIndex(i)}
                   aria-label={`Voir ${offering.title}`}
                   aria-current={i === index ? "true" : undefined}
-                  className={`h-0.5 rounded-full transition-[width,background-color] ${
-                    i === index ? "w-8 bg-[#b68e54]" : "w-3 bg-[#14201e]/15"
+                  className={`size-2 rounded-full transition-colors ${
+                    i === index ? "bg-[#b68e54]" : "bg-[#14201e]/15"
                   }`}
                 />
               ))}
@@ -290,14 +313,7 @@ export default function Prestations() {
         </div>
       </div>
 
-      <div className="relative mx-5 hidden shrink-0 flex-col gap-7 border-t border-[#14201e]/18 pt-7 pb-10 sm:mx-8 sm:flex sm:flex-row sm:items-center sm:justify-between lg:mx-[7.5vw] lg:pb-16">
-        <p className="flex items-center gap-4 text-xs text-[#14201e]/58 sm:text-sm">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#b68e54]/75 text-[#b68e54]">
-            <Icon icon={compassIcon} className="size-5" />
-          </span>
-          Déplacement en Guadeloupe inclus — au-delà, sur devis.
-        </p>
-
+      <div className="relative mx-5 hidden shrink-0 flex-col gap-7 border-t border-[#14201e]/18 pt-7 pb-10 sm:mx-8 sm:flex sm:flex-row sm:items-center sm:justify-end lg:mx-[7.5vw] lg:pb-16">
         <Link
           href="/contact"
           className="cta-button cta-dark mx-auto inline-flex min-h-14 w-fit shrink-0 items-center gap-8 bg-[#14201e] px-8 text-[9px] font-extrabold tracking-[0.2em] text-white uppercase shadow-[0_12px_30px_rgba(20,32,30,0.18)] transition-colors hover:bg-[#25332f] sm:mx-0 lg:min-w-[25rem] lg:justify-center"

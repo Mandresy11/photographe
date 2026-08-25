@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import chevronLeftIcon from "@iconify-icons/solar/alt-arrow-left-linear";
+import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
 
 const storySlides = [
   {
@@ -182,12 +185,11 @@ export default function Moments() {
           aria-label="Étape précédente"
           className="group absolute top-1/2 left-3 z-30 flex size-11 -translate-y-1/2 items-center justify-center border border-white/35 bg-[#08100e]/35 text-white backdrop-blur-sm transition-[border-color,background-color] hover:border-[#d8b884] hover:bg-[#08100e]/65 sm:left-6 sm:size-12 lg:left-10"
         >
-          <span
+          <Icon
+            icon={chevronLeftIcon}
+            className="size-4 transition-transform group-hover:-translate-x-1"
             aria-hidden="true"
-            className="transition-transform group-hover:-translate-x-1"
-          >
-            ←
-          </span>
+          />
         </button>
 
         <button
@@ -196,12 +198,11 @@ export default function Moments() {
           aria-label="Étape suivante"
           className="group absolute top-1/2 right-3 z-30 flex size-11 -translate-y-1/2 items-center justify-center border border-white/35 bg-[#08100e]/35 text-white backdrop-blur-sm transition-[border-color,background-color] hover:border-[#d8b884] hover:bg-[#08100e]/65 sm:right-6 sm:size-12 lg:right-10"
         >
-          <span
+          <Icon
+            icon={chevronRightIcon}
+            className="size-4 transition-transform group-hover:translate-x-1"
             aria-hidden="true"
-            className="transition-transform group-hover:translate-x-1"
-          >
-            →
-          </span>
+          />
         </button>
 
         <div
@@ -215,10 +216,10 @@ export default function Moments() {
               onClick={() => setActiveIndex(index)}
               aria-label={`Afficher l’étape ${index + 1}`}
               aria-current={activeIndex === index ? "step" : undefined}
-              className={`h-px transition-[width,background-color] ${
+              className={`size-2 rounded-full transition-colors ${
                 activeIndex === index
-                  ? "w-8 bg-[#d8b884]"
-                  : "w-4 bg-white/35 hover:bg-white"
+                  ? "bg-[#d8b884]"
+                  : "bg-white/35 hover:bg-white"
               }`}
             />
           ))}

@@ -5,7 +5,9 @@ import instagramIcon from "@iconify-icons/simple-icons/instagram";
 import facebookIcon from "@iconify-icons/simple-icons/facebook";
 import linkedinIcon from "@iconify-icons/simple-icons/linkedin";
 import bookIcon from "@iconify-icons/solar/book-linear";
+import cameraSquareIcon from "@iconify-icons/solar/camera-square-linear";
 import penIcon from "@iconify-icons/solar/pen-2-linear";
+import HideOnContact from "@/components/HideOnContact";
 
 const footerSections = [
   {
@@ -22,6 +24,7 @@ const footerSections = [
     title: "Le studio",
     links: [
       { name: "Le photographe", href: "/photographe" },
+      { name: "Histoires", href: "/histoires" },
       { name: "Questions", href: "/questions" },
       { name: "Contact", href: "/contact" },
     ],
@@ -58,6 +61,11 @@ const socialLinks = [
     label: "Portfolio",
     href: "https://patricewilfrid.myportfolio.com/photoshoot-mariage",
     icon: bookIcon,
+  },
+  {
+    label: "YouPic",
+    href: "https://youpic.com/patricewilfrid",
+    icon: cameraSquareIcon,
   },
 ];
 
@@ -107,10 +115,11 @@ export default function SiteFooter() {
       </span>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-        <section
-          aria-labelledby="footer-next-story"
-          className="relative mb-16 overflow-hidden rounded-[2rem] border border-[#c7a05c]/50 bg-[#09110f] px-6 pt-24 pb-10 shadow-[inset_0_0_80px_rgba(0,0,0,0.2)] sm:px-10 sm:py-12 lg:mb-20 lg:min-h-[30rem] lg:px-14 lg:py-12"
-        >
+        <HideOnContact>
+          <section
+            aria-labelledby="footer-next-story"
+            className="relative mb-16 overflow-hidden rounded-[2rem] border border-[#c7a05c]/50 bg-[#09110f] px-6 pt-24 pb-10 shadow-[inset_0_0_80px_rgba(0,0,0,0.2)] sm:px-10 sm:py-12 lg:mb-20 lg:min-h-[30rem] lg:px-14 lg:py-12"
+          >
           <span
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_57%_50%,rgba(199,160,92,0.07),transparent_30%),linear-gradient(110deg,transparent_55%,rgba(255,255,255,0.015),transparent)]"
@@ -192,7 +201,8 @@ export default function SiteFooter() {
               </Link>
             </div>
           </div>
-        </section>
+          </section>
+        </HideOnContact>
 
         <div className="flex flex-col gap-14 border-b border-white/15 pb-12 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
           <div className="flex w-full flex-col gap-6 lg:max-w-xs">
@@ -203,9 +213,12 @@ export default function SiteFooter() {
               Patrice Wilfrid<span className="text-[#d8b884]">.</span>
             </Link>
             <p className="text-sm leading-relaxed text-white/55">
-              Photographe de mariage en Guadeloupe. Un style éditorial,
-              spontané et lumineux, pour raconter votre journée telle
-              qu&apos;elle a vraiment été vécue.
+              Photographe en Guadeloupe : mariages, portraits officiels et
+              photographie culinaire, avec un regard précis et naturel.
+            </p>
+            <p className="text-[10px] leading-relaxed text-white/38">
+              Photographe « Agréé services en ligne ANTS » pour la
+              photo-signature numérique ePhoto.
             </p>
             <ul className="flex items-center gap-5">
               {socialLinks.map((social) => (

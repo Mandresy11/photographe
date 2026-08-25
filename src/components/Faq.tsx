@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
+import chatIcon from "@iconify-icons/solar/chat-round-dots-linear";
 
 const questions = [
   {
     question: "Quel est le style photographique de Patrice ?",
-    answer: "Éditorial, spontané, contrasté et lumineux.",
+    answer: "Éditorial, spontané et contrasté, avec un jeu subtil de lumière.",
   },
   {
     question: "Où est basé le studio ?",
@@ -71,7 +73,7 @@ export default function Faq() {
               className="cta-button cta-primary mt-7 hidden min-h-10 w-fit items-center gap-3 bg-[#d8b884] px-6 text-[9px] font-bold tracking-[0.2em] text-[#14201e] uppercase transition-colors hover:bg-[#edd19f] sm:inline-flex"
             >
               Poser ma question
-              <span aria-hidden="true">↗</span>
+              <Icon icon={chatIcon} className="size-4" aria-hidden="true" />
             </Link>
           </div>
 
@@ -105,7 +107,7 @@ export default function Faq() {
             className="cta-button cta-primary mx-auto flex min-h-10 w-fit items-center gap-3 bg-[#d8b884] px-6 text-[9px] font-bold tracking-[0.2em] text-[#14201e] uppercase transition-colors hover:bg-[#edd19f] sm:hidden"
           >
             Poser ma question
-            <span aria-hidden="true">↗</span>
+            <Icon icon={chatIcon} className="size-4" aria-hidden="true" />
           </Link>
         </div>
 

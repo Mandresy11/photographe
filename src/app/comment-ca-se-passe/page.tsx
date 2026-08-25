@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DeroulementDetailed from "@/components/DeroulementDetailed";
+import AfterWeddingSection from "@/components/AfterWeddingSection";
 import BookingProcess from "@/components/BookingProcess";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ export default function CommentCaSePassePage() {
     <main className="pt-24 sm:pt-28 lg:pt-32">
       <DeroulementDetailed />
       <BookingProcess />
+      <AfterWeddingSection />
     </main>
   );
 }

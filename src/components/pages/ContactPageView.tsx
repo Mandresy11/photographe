@@ -21,7 +21,7 @@ const highlights = [
 ];
 
 const fieldClassName =
-  "mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-base tracking-normal text-white normal-case outline-none transition-colors placeholder:text-white/45 focus:border-[#d8b884] focus:bg-black/30 focus:ring-2 focus:ring-[#d8b884]/15 sm:min-h-11 sm:rounded-none sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:py-2 sm:text-sm sm:focus:bg-transparent sm:focus:ring-0";
+  "mt-2 min-h-12 w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-base tracking-normal text-white normal-case outline-none transition-colors placeholder:font-normal placeholder:text-white/45 focus:border-[#d8b884] focus:bg-black/30 focus:ring-2 focus:ring-[#d8b884]/15 sm:min-h-11 sm:rounded-none sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:py-2 sm:text-sm sm:focus:bg-transparent sm:focus:ring-0 lg:min-h-9 lg:py-1.5 lg:text-[13px]";
 
 export default function ContactPageView() {
   return (
@@ -40,7 +40,7 @@ export default function ContactPageView() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,21,18,0.82)_0%,rgba(14,21,18,0.5)_48%,rgba(14,21,18,0.7)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,21,18,0.3)_0%,transparent_30%,rgba(14,21,18,0.4)_100%)]" />
 
-      <div className="relative mx-auto grid max-w-[1600px] gap-8 px-5 pt-32 pb-16 sm:gap-12 sm:px-8 sm:pt-40 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-10 lg:px-12 lg:pt-24 lg:pb-24">
+      <div className="relative mx-auto grid max-w-[1600px] gap-8 px-5 pt-32 pb-16 sm:gap-12 sm:px-8 sm:pt-40 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-10 lg:px-12 lg:pt-36 lg:pb-20">
         <div>
           <p className="text-[10px] font-bold tracking-[0.28em] text-[#d8b884] uppercase">
             Votre histoire, nos images
@@ -94,8 +94,8 @@ export default function ContactPageView() {
           </div>
         </div>
 
-        <div className="rounded-[1.25rem] border border-white/20 bg-[#0e1512]/90 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:rounded-[1.75rem] sm:border-white/15 sm:bg-white/[0.06] sm:p-8 sm:shadow-none sm:backdrop-blur-md lg:p-10">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-5">
+        <div className="rounded-[1.25rem] border border-white/20 bg-[#0e1512]/90 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:rounded-[1.75rem] sm:border-white/15 sm:bg-white/[0.06] sm:p-8 sm:shadow-none sm:backdrop-blur-md lg:w-full lg:max-w-[42rem] lg:justify-self-end">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-5 lg:pb-4">
             <p className="text-[11px] font-extrabold tracking-[0.2em] text-white uppercase sm:text-[10px] sm:tracking-[0.22em]">
               Votre demande
             </p>
@@ -105,7 +105,7 @@ export default function ContactPageView() {
             </span>
           </div>
 
-          <form className="mt-6 grid gap-x-8 gap-y-7 sm:grid-cols-2 sm:gap-y-6">
+          <form className="mt-6 grid gap-x-8 gap-y-7 sm:grid-cols-2 sm:gap-y-6 lg:mt-5 lg:gap-y-4">
             <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase">
               Vos prénoms
               <input
@@ -128,7 +128,7 @@ export default function ContactPageView() {
               />
             </label>
             <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase">
-              Date du mariage
+              Date souhaitée
               <input
                 type="date"
                 name="date"
@@ -147,12 +147,10 @@ export default function ContactPageView() {
               />
             </label>
             <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase">
-              Nombre d’invités
+              Type de prestation
               <input
-                type="number"
-                min="0"
-                name="invites"
-                placeholder="Environ"
+                name="prestation"
+                placeholder="Mariage, identité, restaurant…"
                 className={fieldClassName}
               />
             </label>
@@ -165,20 +163,39 @@ export default function ContactPageView() {
                 className={fieldClassName}
               />
             </label>
+            <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase">
+              Nombre d’invités / personnes
+              <input
+                type="number"
+                name="participants"
+                min="1"
+                inputMode="numeric"
+                placeholder="Environ"
+                className={fieldClassName}
+              />
+            </label>
+            <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase">
+              Comment m’avez-vous trouvé ?
+              <input
+                name="source"
+                placeholder="Instagram, Google, recommandation…"
+                className={fieldClassName}
+              />
+            </label>
             <label className="text-[11px] font-extrabold tracking-[0.14em] text-white uppercase sm:col-span-2">
-              Racontez votre journée, vos envies…
+              Parlez-moi de votre projet
               <textarea
                 name="message"
                 rows={4}
-                placeholder="Décrivez votre projet, vos inspirations, le déroulé de votre journée…"
-                className={`${fieldClassName} resize-none leading-7`}
+                placeholder="Décrivez votre besoin, vos inspirations et le résultat souhaité…"
+                className={`${fieldClassName} resize-none leading-7 lg:h-24`}
               />
             </label>
 
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="cta-button cta-primary flex min-h-14 w-full items-center justify-center gap-5 bg-[#d8b884] px-4 text-[11px] font-extrabold tracking-[0.17em] text-[#0e1512] uppercase transition-colors hover:bg-[#ead2ab] sm:gap-6 sm:text-[10px] sm:tracking-[0.2em]"
+                className="cta-button cta-primary flex min-h-14 w-full items-center justify-center gap-5 bg-[#d8b884] px-4 text-[11px] font-extrabold tracking-[0.17em] text-[#0e1512] uppercase transition-colors hover:bg-[#ead2ab] sm:gap-6 sm:text-[10px] sm:tracking-[0.2em] lg:min-h-12"
               >
                 Envoyer ma demande
                 <Icon icon={arrowIcon} className="size-4" aria-hidden="true" />

@@ -13,8 +13,8 @@ const bodoni = Bodoni_Moda({
 
 const values = [
   {
-    title: "Calme",
-    text: "Pour voir ce que l’agitation cache.",
+    title: "Complicité",
+    text: "Pour créer une ambiance ludique et vous mettre à l’aise.",
     icon: waterdropIcon,
   },
   {
@@ -66,9 +66,10 @@ export default function PhotographerPageView() {
             La discrétion comme méthode.
           </h1>
           <p className="mt-10 max-w-2xl text-base leading-8 text-[#11201d]/62 sm:text-lg">
-            Patrice photographie comme il écoute : avec attention, sans
-            interrompre. Son rôle n’est pas de fabriquer votre journée, mais
-            de lui donner une mémoire juste.
+            Inspiré par l’éditorial de mode, Patrice mêle images spontanées,
+            contrastes et jeux subtils de lumière. Il crée une ambiance ludique
+            et émotive pour que chacun se sente à l’aise et que les gestes vrais
+            prennent naturellement leur place.
           </p>
 
           <dl className="mt-10 grid grid-cols-3 border-y border-[#11201d]/18 py-7 text-center">
@@ -91,6 +92,21 @@ export default function PhotographerPageView() {
               <dd className="mt-2 text-sm font-extrabold sm:text-lg">Éditoriale</dd>
             </div>
           </dl>
+
+          <p className="mt-6 max-w-2xl text-xs leading-6 text-[#11201d]/45">
+            Photographe « Agréé services en ligne ANTS » et référencé dans{" "}
+            <a
+              href="https://permisdeconduire.ants.gouv.fr/home/services/find-locations-of-photographers?lang=fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#8a6838] underline decoration-[#b68e54]/35 underline-offset-4 transition-colors hover:text-[#11201d]"
+            >
+              l’annuaire officiel France Titres
+            </a>
+            , Patrice réalise vos photos d’identité conformes pour cartes
+            d’identité et passeports, ainsi que la photo-signature numérique
+            ePhoto pour vos démarches de permis de conduire.
+          </p>
         </header>
       </div>
 
@@ -218,7 +234,7 @@ export default function PhotographerPageView() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-px left-0 z-20 hidden h-16 w-[62%] bg-[#cbb48d] opacity-90 lg:block [clip-path:polygon(0_58%,4%_52%,9%_64%,14%_49%,20%_61%,27%_50%,34%_63%,41%_46%,48%_62%,55%_52%,62%_66%,70%_48%,78%_60%,86%_44%,93%_57%,100%_38%,100%_100%,0_100%)]"
+          className="pointer-events-none absolute -bottom-px left-0 z-20 hidden h-16 w-full bg-[#cbb48d] opacity-90 lg:block [clip-path:polygon(0_58%,2.4%_52%,5.4%_64%,8.4%_49%,12%_61%,16.2%_50%,20.4%_63%,24.6%_46%,28.8%_62%,33%_52%,37.2%_66%,42%_48%,46.8%_60%,51.6%_44%,55.8%_57%,60%_38%,64.2%_55%,68.4%_42%,72.6%_60%,76.8%_46%,81%_58%,85.2%_50%,89.4%_64%,93.6%_47%,97.8%_59%,100%_50%,100%_100%,0_100%)]"
         />
       </div>
     </section>

@@ -8,8 +8,7 @@ import homeIcon from "@iconify-icons/solar/home-2-linear";
 import messageIcon from "@iconify-icons/solar/chat-round-dots-linear";
 import questionIcon from "@iconify-icons/solar/question-circle-linear";
 import routingIcon from "@iconify-icons/solar/routing-linear";
-import starIcon from "@iconify-icons/solar/star-linear";
-import apertureIcon from "@iconify-icons/solar/camera-linear";
+import storiesIcon from "@iconify-icons/solar/book-bookmark-linear";
 import calendarIcon from "@iconify-icons/solar/calendar-linear";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,20 +20,51 @@ const navItems = [
   { label: "Comment ça se passe", href: "/comment-ca-se-passe", icon: routingIcon },
   { label: "Le photographe", href: "/photographe", icon: cameraIcon },
   { label: "Galerie", href: "/galerie", icon: galleryIcon },
-  { label: "Avis clients", href: "/avis-clients", icon: starIcon },
-  { label: "Questions", href: "/questions", icon: questionIcon },
+  { label: "Histoires", href: "/histoires", icon: storiesIcon },
+  { label: "FAQ", href: "/questions", icon: questionIcon },
   { label: "Contact", href: "/contact", icon: messageIcon },
 ];
 
-function ApertureMark({ expanded = false }: { expanded?: boolean }) {
+function BrandMark({ expanded = false }: { expanded?: boolean }) {
   return (
-    <Icon
-      icon={apertureIcon}
+    <svg
+      viewBox="0 0 56 48"
       aria-hidden="true"
-      className={`size-8 shrink-0 text-[#d8b884] sm:size-11 ${
-        expanded ? "2xl:size-14 2xl:translate-y-1" : ""
+      className={`h-8 w-10 shrink-0 overflow-visible text-[#d8b884] sm:h-11 sm:w-[3.4rem] ${
+        expanded ? "2xl:h-14 2xl:w-[4.25rem] 2xl:translate-y-1" : ""
       }`}
-    />
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.5 9.5 20 5h16l3.5 4.5H46a7 7 0 0 1 7 7v21.25a7 7 0 0 1-7 7H10a7 7 0 0 1-7-7V16.5a7 7 0 0 1 7-7h6.5Z"
+        fill="currentColor"
+        fillOpacity="0.07"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <circle
+        cx="28"
+        cy="27"
+        r="12.75"
+        fill="#08100e"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <circle cx="45.5" cy="16.5" r="1.6" fill="currentColor" />
+      <text
+        x="28"
+        y="30.2"
+        fill="currentColor"
+        fontFamily="Georgia, serif"
+        fontSize="9.4"
+        fontWeight="700"
+        letterSpacing="0.35"
+        textAnchor="middle"
+      >
+        PW
+      </text>
+    </svg>
   );
 }
 
@@ -101,7 +131,7 @@ export default function Navbar() {
           className="group flex min-w-0 items-center gap-3 rounded-full pr-4 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d8b884] lg:gap-4 lg:pr-10"
           aria-label="Patrice Wilfrid — retour à l’accueil"
         >
-          <ApertureMark expanded={isHeroNavbar} />
+          <BrandMark expanded={isHeroNavbar} />
           <span className="truncate font-[Georgia] text-[10px] font-normal tracking-[0.22em] uppercase sm:text-[15px]">
             Patrice Wilfrid
             <span className="text-[#d8b884]">.</span>

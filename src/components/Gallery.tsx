@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Bodoni_Moda } from "next/font/google";
+import { Icon } from "@iconify/react";
+import chevronRightIcon from "@iconify-icons/solar/alt-arrow-right-linear";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -9,10 +11,10 @@ const bodoni = Bodoni_Moda({
 
 const leftPhotos = [
   {
-    src: "/web/photoo/Mariage%20Christophe%20%26%20Sandra/31122013-DSC_6500.jpg",
-    alt: "Mariée dans un salon orné de dorures et lustres",
+    src: "/web/photoo/Mariage%20Christophe%20%26%20Sandra/31122013-DSC_6504.jpg",
+    alt: "Portrait de Christophe et Sandra face à l’océan",
     span: "row-span-2",
-    position: "center",
+    position: "center 20%",
   },
   {
     src: "/web/photoo/Mariage%20Marvin%26Gwen/_DSC7315.jpg",
@@ -21,8 +23,8 @@ const leftPhotos = [
   },
   {
     src: "/web/photoo/Mariage%20Mr%20%26%20Mme%20Nilor/06082022-DSC_8551.jpg",
-    alt: "Alliances et détails de cérémonie",
-    position: "center",
+    alt: "Portrait des mariés Monsieur et Madame Nilor",
+    position: "center 12%",
   },
 ];
 
@@ -30,7 +32,7 @@ const rightPhotos = [
   {
     src: "/web/photoo/PHOTOSHOOT%20BOOK%20RONALD%20CHERY/prise%20de%20vue%20sans%20titre-5949%20INSTA%20CHERY_RONALD.jpg",
     alt: "Portrait éditorial en noir et blanc",
-    position: "center 25%",
+    position: "center 12%",
   },
   {
     src: "/web/photoo/Mariage%20Christophe%20%26%20Sandra/07052022-DSC_6417.jpg",
@@ -38,10 +40,10 @@ const rightPhotos = [
     position: "center",
   },
   {
-    src: "/web/photoo/Mariage%20Gina%20%26%20Lionel/DSC_4886.jpg",
-    alt: "Réception de mariage baignée de lumière",
+    src: "/web/photoo/Mariage%20Marvin%26Gwen/_DSC6836.jpg",
+    alt: "Portrait de Marvin ajustant son gilet avant la cérémonie",
     span: "row-span-2",
-    position: "center",
+    position: "center 22%",
   },
 ];
 
@@ -77,8 +79,8 @@ export default function Gallery() {
           Des images sincères et élégantes, pour raconter l’essentiel.
         </p>
 
-        <div className="mt-14 grid w-full grid-cols-[1fr_1fr] items-center gap-4 sm:grid-cols-[1.3fr_1fr_1.5fr_1fr_1.3fr] sm:gap-5 lg:mt-16 lg:gap-6">
-          <div className="aspect-[3/4] overflow-hidden rounded-md border border-white/80">
+        <div className="mt-14 grid w-full grid-cols-[1fr_1fr] items-center gap-4 sm:grid-cols-[1.15fr_0.9fr_1.55fr_1.1fr_1.35fr] sm:gap-5 lg:mt-16 lg:gap-6">
+          <div className="aspect-[3/4] overflow-hidden rounded-md border border-white/80 sm:-translate-y-5">
             <Image
               src={leftPhotos[0].src}
               alt={leftPhotos[0].alt}
@@ -90,7 +92,7 @@ export default function Gallery() {
             />
           </div>
 
-          <div className="grid grid-rows-2 gap-4 sm:gap-5">
+          <div className="grid translate-y-4 grid-rows-2 gap-4 sm:translate-y-7 sm:gap-5">
             {leftPhotos.slice(1).map((photo) => (
               <div
                 key={photo.src}
@@ -119,7 +121,7 @@ export default function Gallery() {
             />
           </div>
 
-          <div className="grid grid-rows-2 gap-4 sm:gap-5">
+          <div className="grid -translate-y-3 grid-rows-2 gap-4 sm:-translate-y-6 sm:gap-5">
             {rightPhotos.slice(0, 2).map((photo) => (
               <div
                 key={photo.src}
@@ -138,7 +140,7 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="aspect-[3/4] overflow-hidden rounded-md border border-white/80">
+          <div className="aspect-[3/4] translate-y-5 overflow-hidden rounded-md border border-white/80 sm:translate-y-8">
             <Image
               src={rightPhotos[2].src}
               alt={rightPhotos[2].alt}
@@ -156,7 +158,7 @@ export default function Gallery() {
           className="cta-button cta-primary mt-14 inline-flex min-h-14 w-fit items-center gap-6 bg-[#d8b884] px-9 text-[9px] font-extrabold tracking-[0.24em] text-[#14201e] uppercase transition-colors hover:bg-[#edd19f] lg:mt-16"
         >
           Voir toute la galerie
-          <span aria-hidden="true">→</span>
+          <Icon icon={chevronRightIcon} className="size-4" aria-hidden="true" />
         </Link>
 
         <p className="mt-8 flex items-center gap-3 text-[10px] font-semibold tracking-[0.22em] text-white uppercase">

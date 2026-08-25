@@ -20,6 +20,8 @@ const steps = [
     number: "01",
     title: "Premier échange",
     text: "On échange sur votre histoire, vos envies et le déroulé de votre journée.",
+    detailLabel: "Réponse sous 24 à 48h",
+    detail: "Message, appel ou visio : vous m’envoyez la date, le lieu et le nombre d’invités.",
     icon: chatIcon,
     image:
       "/web/photoo/Mariage%20Christophe%20%26%20Sandra/07052022-DSC_6464.jpg",
@@ -30,6 +32,8 @@ const steps = [
     number: "02",
     title: "La préparation",
     text: "Nous organisons ensemble les temps forts de votre journée.",
+    detailLabel: "Contrat & acompte",
+    detail: "Un minutage détaillé est établi ensemble : rien n’est laissé au hasard avant le jour J.",
     icon: calendarIcon,
     image: "/web/photoo/Mariage%20Marvin%26Gwen/_DSC6836.jpg",
     alt: "Marvin ajuste sa tenue pendant les préparatifs",
@@ -39,6 +43,8 @@ const steps = [
     number: "03",
     title: "Le jour J",
     text: "Je photographie l’instant avec discrétion, présent sans jamais interrompre.",
+    detailLabel: "Quelques heures à la journée complète",
+    detail: "Selon la formule choisie, seul ou avec un second photographe.",
     icon: cameraIcon,
     image: "/web/photoo/Mariage%20Marvin%26Gwen/_DSC7315.jpg",
     alt: "Marvin et Gwen devant l’autel pendant leur cérémonie",
@@ -48,6 +54,8 @@ const steps = [
     number: "04",
     title: "Vos images",
     text: "Vous recevez une galerie élégante et intemporelle, fidèle à votre histoire.",
+    detailLabel: "Livraison sous 4 à 6 semaines",
+    detail: "300 à 600 photos sélectionnées et retouchées, dans une galerie privée sécurisée.",
     icon: galleryIcon,
     image: "/web/photoo/Mariage%20Gina%20%26%20Lionel/DSC_4730.jpg",
     alt: "Gina et Lionel réunis après leur cérémonie",
@@ -173,12 +181,23 @@ export default function DeroulementDetailed() {
                   <Icon icon={step.icon} className="size-5" aria-hidden="true" />
                 </span>
 
-                <h3 className="mt-2 text-sm font-bold tracking-[0.08em] text-[#13201e] uppercase">
+                <h3
+                  className={`${bodoni.className} mt-3 text-xl leading-tight font-medium tracking-[-0.01em] text-[#13201e]`}
+                >
                   {step.title}
                 </h3>
-                <p className="mt-4 text-[13px] leading-6 text-[#13201e]/60">
+                <p className="mt-3 text-[13px] leading-6 text-[#13201e]/65">
                   {step.text}
                 </p>
+
+                <div className="mt-5 w-full rounded-xl bg-[#f6efdf] px-4 py-3.5">
+                  <p className="text-[10px] font-extrabold tracking-[0.06em] text-[#9a713a] uppercase">
+                    {step.detailLabel}
+                  </p>
+                  <p className="mt-1.5 text-xs leading-5 text-[#13201e]/60">
+                    {step.detail}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
