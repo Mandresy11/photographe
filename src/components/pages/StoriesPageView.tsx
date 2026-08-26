@@ -218,9 +218,6 @@ export default function StoriesPageView() {
             <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:gap-20">
               <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-4 text-[#9a713a]">
-                  <span className={`${bodoni.className} text-3xl`}>
-                    {story.number}
-                  </span>
                   <span className="text-[9px] font-bold tracking-[0.24em] uppercase">
                     {story.names}
                   </span>
